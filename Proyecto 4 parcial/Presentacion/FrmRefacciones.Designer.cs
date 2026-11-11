@@ -1,0 +1,359 @@
+﻿#nullable enable
+namespace Proyecto_4_parcial.Presentacion
+{
+    partial class FrmRefacciones
+    {
+        private System.ComponentModel.IContainer? components = null;
+        private FlowLayoutPanel panel = null!;
+        private DataGridView dgvDatos = null!;
+        private ErrorProvider errores = null!;
+        private ComboBox cmbCategoriaId = null!;
+        private FlowLayoutPanel grupocmbCategoriaId = null!;
+        private Label etiquetacmbCategoriaId = null!;
+        private TextBox txtNombre = null!;
+        private FlowLayoutPanel grupotxtNombre = null!;
+        private Label etiquetatxtNombre = null!;
+        private NumericUpDown nudPrecio = null!;
+        private FlowLayoutPanel gruponudPrecio = null!;
+        private Label etiquetanudPrecio = null!;
+        private NumericUpDown nudStock = null!;
+        private FlowLayoutPanel gruponudStock = null!;
+        private Label etiquetanudStock = null!;
+        private NumericUpDown nudStockMinimo = null!;
+        private FlowLayoutPanel gruponudStockMinimo = null!;
+        private Label etiquetanudStockMinimo = null!;
+        private TextBox txtBuscar = null!;
+        private FlowLayoutPanel grupotxtBuscar = null!;
+        private Label etiquetatxtBuscar = null!;
+        private Button btnNuevo = null!;
+        private Button btnGuardar = null!;
+        private Button btnBaja = null!;
+        private Button btnCerrar = null!;
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing) components?.Dispose();
+            base.Dispose(disposing);
+        }
+        private void InitializeComponent()
+        {
+            components = new System.ComponentModel.Container();
+            panel = new FlowLayoutPanel();
+            grupocmbCategoriaId = new FlowLayoutPanel();
+            etiquetacmbCategoriaId = new Label();
+            cmbCategoriaId = new ComboBox();
+            grupotxtNombre = new FlowLayoutPanel();
+            etiquetatxtNombre = new Label();
+            txtNombre = new TextBox();
+            gruponudPrecio = new FlowLayoutPanel();
+            etiquetanudPrecio = new Label();
+            nudPrecio = new NumericUpDown();
+            gruponudStock = new FlowLayoutPanel();
+            etiquetanudStock = new Label();
+            nudStock = new NumericUpDown();
+            gruponudStockMinimo = new FlowLayoutPanel();
+            etiquetanudStockMinimo = new Label();
+            nudStockMinimo = new NumericUpDown();
+            grupotxtBuscar = new FlowLayoutPanel();
+            etiquetatxtBuscar = new Label();
+            txtBuscar = new TextBox();
+            btnNuevo = new Button();
+            btnGuardar = new Button();
+            btnBaja = new Button();
+            btnCerrar = new Button();
+            dgvDatos = new DataGridView();
+            errores = new ErrorProvider(components);
+            panel.SuspendLayout();
+            grupocmbCategoriaId.SuspendLayout();
+            grupotxtNombre.SuspendLayout();
+            gruponudPrecio.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)nudPrecio).BeginInit();
+            gruponudStock.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)nudStock).BeginInit();
+            gruponudStockMinimo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)nudStockMinimo).BeginInit();
+            grupotxtBuscar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvDatos).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errores).BeginInit();
+            SuspendLayout();
+            // 
+            // panel
+            // 
+            panel.AutoScroll = true;
+            panel.Controls.Add(grupocmbCategoriaId);
+            panel.Controls.Add(grupotxtNombre);
+            panel.Controls.Add(gruponudPrecio);
+            panel.Controls.Add(gruponudStock);
+            panel.Controls.Add(gruponudStockMinimo);
+            panel.Controls.Add(grupotxtBuscar);
+            panel.Controls.Add(btnNuevo);
+            panel.Controls.Add(btnGuardar);
+            panel.Controls.Add(btnBaja);
+            panel.Controls.Add(btnCerrar);
+            panel.Dock = DockStyle.Top;
+            panel.Location = new Point(0, 0);
+            panel.Name = "panel";
+            panel.Padding = new Padding(12);
+            panel.Size = new Size(1100, 230);
+            panel.TabIndex = 1;
+            // 
+            // grupocmbCategoriaId
+            // 
+            grupocmbCategoriaId.Controls.Add(etiquetacmbCategoriaId);
+            grupocmbCategoriaId.Controls.Add(cmbCategoriaId);
+            grupocmbCategoriaId.FlowDirection = FlowDirection.TopDown;
+            grupocmbCategoriaId.Location = new Point(15, 15);
+            grupocmbCategoriaId.Name = "grupocmbCategoriaId";
+            grupocmbCategoriaId.Size = new Size(230, 70);
+            grupocmbCategoriaId.TabIndex = 0;
+            grupocmbCategoriaId.WrapContents = false;
+            // 
+            // etiquetacmbCategoriaId
+            // 
+            etiquetacmbCategoriaId.AutoSize = true;
+            etiquetacmbCategoriaId.Location = new Point(3, 0);
+            etiquetacmbCategoriaId.Name = "etiquetacmbCategoriaId";
+            etiquetacmbCategoriaId.Size = new Size(84, 23);
+            etiquetacmbCategoriaId.TabIndex = 0;
+            etiquetacmbCategoriaId.Text = "Categoría";
+            // 
+            // cmbCategoriaId
+            // 
+            cmbCategoriaId.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbCategoriaId.Location = new Point(3, 26);
+            cmbCategoriaId.Name = "cmbCategoriaId";
+            cmbCategoriaId.Size = new Size(210, 31);
+            cmbCategoriaId.TabIndex = 1;
+            // 
+            // grupotxtNombre
+            // 
+            grupotxtNombre.Controls.Add(etiquetatxtNombre);
+            grupotxtNombre.Controls.Add(txtNombre);
+            grupotxtNombre.FlowDirection = FlowDirection.TopDown;
+            grupotxtNombre.Location = new Point(251, 15);
+            grupotxtNombre.Name = "grupotxtNombre";
+            grupotxtNombre.Size = new Size(230, 70);
+            grupotxtNombre.TabIndex = 1;
+            grupotxtNombre.WrapContents = false;
+            // 
+            // etiquetatxtNombre
+            // 
+            etiquetatxtNombre.AutoSize = true;
+            etiquetatxtNombre.Location = new Point(3, 0);
+            etiquetatxtNombre.Name = "etiquetatxtNombre";
+            etiquetatxtNombre.Size = new Size(73, 23);
+            etiquetatxtNombre.TabIndex = 0;
+            etiquetatxtNombre.Text = "Nombre";
+            // 
+            // txtNombre
+            // 
+            txtNombre.Location = new Point(3, 26);
+            txtNombre.MaxLength = 250;
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(210, 30);
+            txtNombre.TabIndex = 1;
+            // 
+            // gruponudPrecio
+            // 
+            gruponudPrecio.Controls.Add(etiquetanudPrecio);
+            gruponudPrecio.Controls.Add(nudPrecio);
+            gruponudPrecio.FlowDirection = FlowDirection.TopDown;
+            gruponudPrecio.Location = new Point(487, 15);
+            gruponudPrecio.Name = "gruponudPrecio";
+            gruponudPrecio.Size = new Size(230, 70);
+            gruponudPrecio.TabIndex = 2;
+            gruponudPrecio.WrapContents = false;
+            // 
+            // etiquetanudPrecio
+            // 
+            etiquetanudPrecio.AutoSize = true;
+            etiquetanudPrecio.Location = new Point(3, 0);
+            etiquetanudPrecio.Name = "etiquetanudPrecio";
+            etiquetanudPrecio.Size = new Size(57, 23);
+            etiquetanudPrecio.TabIndex = 0;
+            etiquetanudPrecio.Text = "Precio";
+            // 
+            // nudPrecio
+            // 
+            nudPrecio.DecimalPlaces = 2;
+            nudPrecio.Location = new Point(3, 26);
+            nudPrecio.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
+            nudPrecio.Name = "nudPrecio";
+            nudPrecio.Size = new Size(210, 30);
+            nudPrecio.TabIndex = 1;
+            // 
+            // gruponudStock
+            // 
+            gruponudStock.Controls.Add(etiquetanudStock);
+            gruponudStock.Controls.Add(nudStock);
+            gruponudStock.FlowDirection = FlowDirection.TopDown;
+            gruponudStock.Location = new Point(723, 15);
+            gruponudStock.Name = "gruponudStock";
+            gruponudStock.Size = new Size(230, 70);
+            gruponudStock.TabIndex = 3;
+            gruponudStock.WrapContents = false;
+            // 
+            // etiquetanudStock
+            // 
+            etiquetanudStock.AutoSize = true;
+            etiquetanudStock.Location = new Point(3, 0);
+            etiquetanudStock.Name = "etiquetanudStock";
+            etiquetanudStock.Size = new Size(98, 23);
+            etiquetanudStock.TabIndex = 0;
+            etiquetanudStock.Text = "Stock inicial";
+            // 
+            // nudStock
+            // 
+            nudStock.Location = new Point(3, 26);
+            nudStock.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
+            nudStock.Name = "nudStock";
+            nudStock.Size = new Size(210, 30);
+            nudStock.TabIndex = 1;
+            // 
+            // gruponudStockMinimo
+            // 
+            gruponudStockMinimo.Controls.Add(etiquetanudStockMinimo);
+            gruponudStockMinimo.Controls.Add(nudStockMinimo);
+            gruponudStockMinimo.FlowDirection = FlowDirection.TopDown;
+            gruponudStockMinimo.Location = new Point(15, 91);
+            gruponudStockMinimo.Name = "gruponudStockMinimo";
+            gruponudStockMinimo.Size = new Size(230, 70);
+            gruponudStockMinimo.TabIndex = 4;
+            gruponudStockMinimo.WrapContents = false;
+            // 
+            // etiquetanudStockMinimo
+            // 
+            etiquetanudStockMinimo.AutoSize = true;
+            etiquetanudStockMinimo.Location = new Point(3, 0);
+            etiquetanudStockMinimo.Name = "etiquetanudStockMinimo";
+            etiquetanudStockMinimo.Size = new Size(113, 23);
+            etiquetanudStockMinimo.TabIndex = 0;
+            etiquetanudStockMinimo.Text = "Stock mínimo";
+            // 
+            // nudStockMinimo
+            // 
+            nudStockMinimo.Location = new Point(3, 26);
+            nudStockMinimo.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
+            nudStockMinimo.Name = "nudStockMinimo";
+            nudStockMinimo.Size = new Size(210, 30);
+            nudStockMinimo.TabIndex = 1;
+            // 
+            // grupotxtBuscar
+            // 
+            grupotxtBuscar.Controls.Add(etiquetatxtBuscar);
+            grupotxtBuscar.Controls.Add(txtBuscar);
+            grupotxtBuscar.FlowDirection = FlowDirection.TopDown;
+            grupotxtBuscar.Location = new Point(251, 91);
+            grupotxtBuscar.Name = "grupotxtBuscar";
+            grupotxtBuscar.Size = new Size(230, 70);
+            grupotxtBuscar.TabIndex = 5;
+            grupotxtBuscar.WrapContents = false;
+            // 
+            // etiquetatxtBuscar
+            // 
+            etiquetatxtBuscar.AutoSize = true;
+            etiquetatxtBuscar.Location = new Point(3, 0);
+            etiquetatxtBuscar.Name = "etiquetatxtBuscar";
+            etiquetatxtBuscar.Size = new Size(60, 23);
+            etiquetatxtBuscar.TabIndex = 0;
+            etiquetatxtBuscar.Text = "Buscar";
+            // 
+            // txtBuscar
+            // 
+            txtBuscar.Location = new Point(3, 26);
+            txtBuscar.MaxLength = 250;
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.Size = new Size(210, 30);
+            txtBuscar.TabIndex = 1;
+            // 
+            // btnNuevo
+            // 
+            btnNuevo.AutoSize = true;
+            btnNuevo.Location = new Point(492, 114);
+            btnNuevo.Margin = new Padding(8, 26, 8, 0);
+            btnNuevo.Name = "btnNuevo";
+            btnNuevo.Size = new Size(75, 35);
+            btnNuevo.TabIndex = 6;
+            btnNuevo.Text = "Nuevo";
+            // 
+            // btnGuardar
+            // 
+            btnGuardar.AutoSize = true;
+            btnGuardar.Location = new Point(583, 114);
+            btnGuardar.Margin = new Padding(8, 26, 8, 0);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(82, 35);
+            btnGuardar.TabIndex = 7;
+            btnGuardar.Text = "Guardar";
+            // 
+            // btnBaja
+            // 
+            btnBaja.AutoSize = true;
+            btnBaja.Location = new Point(681, 114);
+            btnBaja.Margin = new Padding(8, 26, 8, 0);
+            btnBaja.Name = "btnBaja";
+            btnBaja.Size = new Size(108, 35);
+            btnBaja.TabIndex = 8;
+            btnBaja.Text = "Dar de baja";
+            // 
+            // btnCerrar
+            // 
+            btnCerrar.AutoSize = true;
+            btnCerrar.Location = new Point(805, 114);
+            btnCerrar.Margin = new Padding(8, 26, 8, 0);
+            btnCerrar.Name = "btnCerrar";
+            btnCerrar.Size = new Size(75, 35);
+            btnCerrar.TabIndex = 9;
+            btnCerrar.Text = "Cerrar";
+            // 
+            // dgvDatos
+            // 
+            dgvDatos.AllowUserToAddRows = false;
+            dgvDatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            dgvDatos.ColumnHeadersHeight = 29;
+            dgvDatos.Dock = DockStyle.Fill;
+            dgvDatos.Location = new Point(0, 230);
+            dgvDatos.MultiSelect = false;
+            dgvDatos.Name = "dgvDatos";
+            dgvDatos.ReadOnly = true;
+            dgvDatos.RowHeadersWidth = 51;
+            dgvDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvDatos.Size = new Size(1100, 470);
+            dgvDatos.TabIndex = 0;
+            // 
+            // errores
+            // 
+            errores.ContainerControl = this;
+            // 
+            // FrmRefacciones
+            // 
+            AutoScaleDimensions = new SizeF(9F, 23F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1100, 700);
+            Controls.Add(dgvDatos);
+            Controls.Add(panel);
+            Font = new Font("Segoe UI", 10F);
+            Name = "FrmRefacciones";
+            Text = "Refacciones";
+            panel.ResumeLayout(false);
+            panel.PerformLayout();
+            grupocmbCategoriaId.ResumeLayout(false);
+            grupocmbCategoriaId.PerformLayout();
+            grupotxtNombre.ResumeLayout(false);
+            grupotxtNombre.PerformLayout();
+            gruponudPrecio.ResumeLayout(false);
+            gruponudPrecio.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)nudPrecio).EndInit();
+            gruponudStock.ResumeLayout(false);
+            gruponudStock.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)nudStock).EndInit();
+            gruponudStockMinimo.ResumeLayout(false);
+            gruponudStockMinimo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)nudStockMinimo).EndInit();
+            grupotxtBuscar.ResumeLayout(false);
+            grupotxtBuscar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvDatos).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errores).EndInit();
+            ResumeLayout(false);
+        }
+    }
+}

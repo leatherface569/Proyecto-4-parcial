@@ -1,0 +1,118 @@
+﻿#nullable enable
+namespace Proyecto_4_parcial.Presentacion
+{
+    partial class FrmCategorias
+    {
+        private System.ComponentModel.IContainer? components = null;
+        private FlowLayoutPanel panel = null!;
+        private DataGridView dgvDatos = null!;
+        private ErrorProvider errores = null!;
+        private TextBox txtNombre = null!;
+        private FlowLayoutPanel grupotxtNombre = null!;
+        private Label etiquetatxtNombre = null!;
+        private TextBox txtBuscar = null!;
+        private FlowLayoutPanel grupotxtBuscar = null!;
+        private Label etiquetatxtBuscar = null!;
+        private Button btnNuevo = null!;
+        private Button btnGuardar = null!;
+        private Button btnBaja = null!;
+        private Button btnCerrar = null!;
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing) components?.Dispose();
+            base.Dispose(disposing);
+        }
+        private void InitializeComponent()
+        {
+            components = new System.ComponentModel.Container();
+            panel = new FlowLayoutPanel();
+            dgvDatos = new DataGridView();
+            errores = new ErrorProvider(components);
+            txtNombre = new TextBox();
+            grupotxtNombre = new FlowLayoutPanel();
+            etiquetatxtNombre = new Label();
+            txtBuscar = new TextBox();
+            grupotxtBuscar = new FlowLayoutPanel();
+            etiquetatxtBuscar = new Label();
+            btnNuevo = new Button();
+            btnGuardar = new Button();
+            btnBaja = new Button();
+            btnCerrar = new Button();
+            SuspendLayout();
+            panel.SuspendLayout();
+            panel.Name = "panel";
+            panel.Dock = DockStyle.Top;
+            panel.Height = 230;
+            panel.Padding = new Padding(12);
+            panel.AutoScroll = true;
+            dgvDatos.Name = "dgvDatos";
+            dgvDatos.Dock = DockStyle.Fill;
+            dgvDatos.ReadOnly = true;
+            dgvDatos.AllowUserToAddRows = false;
+            dgvDatos.MultiSelect = false;
+            dgvDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvDatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            errores.ContainerControl = this;
+            txtNombre.Name = "txtNombre";
+            txtNombre.Width = 210;
+            txtNombre.MaxLength = 250;
+            etiquetatxtNombre.Text = "Nombre";
+            etiquetatxtNombre.AutoSize = true;
+            grupotxtNombre.Name = "grupotxtNombre";
+            grupotxtNombre.Width = 230;
+            grupotxtNombre.Height = 70;
+            grupotxtNombre.FlowDirection = FlowDirection.TopDown;
+            grupotxtNombre.WrapContents = false;
+            grupotxtNombre.Controls.Add(etiquetatxtNombre);
+            grupotxtNombre.Controls.Add(txtNombre);
+            panel.Controls.Add(grupotxtNombre);
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.Width = 210;
+            txtBuscar.MaxLength = 250;
+            etiquetatxtBuscar.Text = "Buscar";
+            etiquetatxtBuscar.AutoSize = true;
+            grupotxtBuscar.Name = "grupotxtBuscar";
+            grupotxtBuscar.Width = 230;
+            grupotxtBuscar.Height = 70;
+            grupotxtBuscar.FlowDirection = FlowDirection.TopDown;
+            grupotxtBuscar.WrapContents = false;
+            grupotxtBuscar.Controls.Add(etiquetatxtBuscar);
+            grupotxtBuscar.Controls.Add(txtBuscar);
+            panel.Controls.Add(grupotxtBuscar);
+            btnNuevo.Name = "btnNuevo";
+            btnNuevo.Text = "Nuevo";
+            btnNuevo.AutoSize = true;
+            btnNuevo.Height = 35;
+            btnNuevo.Margin = new Padding(8, 26, 8, 0);
+            panel.Controls.Add(btnNuevo);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Text = "Guardar";
+            btnGuardar.AutoSize = true;
+            btnGuardar.Height = 35;
+            btnGuardar.Margin = new Padding(8, 26, 8, 0);
+            panel.Controls.Add(btnGuardar);
+            btnBaja.Name = "btnBaja";
+            btnBaja.Text = "Dar de baja";
+            btnBaja.AutoSize = true;
+            btnBaja.Height = 35;
+            btnBaja.Margin = new Padding(8, 26, 8, 0);
+            panel.Controls.Add(btnBaja);
+            btnCerrar.Name = "btnCerrar";
+            btnCerrar.Text = "Cerrar";
+            btnCerrar.AutoSize = true;
+            btnCerrar.Height = 35;
+            btnCerrar.Margin = new Padding(8, 26, 8, 0);
+            panel.Controls.Add(btnCerrar);
+            AutoScaleMode = AutoScaleMode.Font;
+            Font = new Font("Segoe UI", 10F);
+            ClientSize = new Size(1100, 700);
+            Name = "FrmCategorias";
+            Text = "Categorías";
+            Controls.Add(dgvDatos);
+            Controls.Add(panel);
+            panel.ResumeLayout(false);
+            panel.PerformLayout();
+            ResumeLayout(false);
+        }
+    }
+}

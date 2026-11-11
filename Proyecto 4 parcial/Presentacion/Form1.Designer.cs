@@ -1,0 +1,120 @@
+#nullable enable
+namespace Proyecto_4_parcial;
+partial class Form1 {
+ private System.ComponentModel.IContainer? components=null;
+ private MenuStrip menuPrincipal=null!;
+ private StatusStrip barraEstado=null!;
+ private ToolStripStatusLabel estadoLabel=null!;
+ private ToolStripMenuItem clientesMenu=null!;
+ private ToolStripMenuItem vehiculosMenu=null!;
+ private ToolStripMenuItem mecanicosMenu=null!;
+ private ToolStripMenuItem serviciosMenu=null!;
+ private ToolStripMenuItem refaccionesMenu=null!;
+ private ToolStripMenuItem ordenesMenu=null!;
+ protected override void Dispose(bool disposing) { if(disposing) components?.Dispose(); base.Dispose(disposing); }
+    private void InitializeComponent()
+    {
+        menuPrincipal = new MenuStrip();
+        clientesMenu = new ToolStripMenuItem();
+        vehiculosMenu = new ToolStripMenuItem();
+        mecanicosMenu = new ToolStripMenuItem();
+        serviciosMenu = new ToolStripMenuItem();
+        refaccionesMenu = new ToolStripMenuItem();
+        ordenesMenu = new ToolStripMenuItem();
+        barraEstado = new StatusStrip();
+        estadoLabel = new ToolStripStatusLabel();
+        menuPrincipal.SuspendLayout();
+        barraEstado.SuspendLayout();
+        SuspendLayout();
+        // 
+        // menuPrincipal
+        // 
+        menuPrincipal.ImageScalingSize = new Size(20, 20);
+        menuPrincipal.Items.AddRange(new ToolStripItem[] { clientesMenu, vehiculosMenu, mecanicosMenu, serviciosMenu, refaccionesMenu, ordenesMenu });
+        menuPrincipal.Location = new Point(0, 0);
+        menuPrincipal.Name = "menuPrincipal";
+        menuPrincipal.Padding = new Padding(7, 3, 0, 3);
+        menuPrincipal.Size = new Size(1314, 30);
+        menuPrincipal.TabIndex = 0;
+        // 
+        // clientesMenu
+        // 
+        clientesMenu.Name = "clientesMenu";
+        clientesMenu.Size = new Size(75, 24);
+        clientesMenu.Text = "Clientes";
+        clientesMenu.Click += clientesMenu_Click;
+        // 
+        // vehiculosMenu
+        // 
+        vehiculosMenu.Name = "vehiculosMenu";
+        vehiculosMenu.Size = new Size(85, 24);
+        vehiculosMenu.Text = "Vehículos";
+        vehiculosMenu.Click += vehiculosMenu_Click;
+        // 
+        // mecanicosMenu
+        // 
+        mecanicosMenu.Name = "mecanicosMenu";
+        mecanicosMenu.Size = new Size(93, 24);
+        mecanicosMenu.Text = "Mecánicos";
+        mecanicosMenu.Click += mecanicosMenu_Click;
+        // 
+        // serviciosMenu
+        // 
+        serviciosMenu.Name = "serviciosMenu";
+        serviciosMenu.Size = new Size(81, 24);
+        serviciosMenu.Text = "Servicios";
+        serviciosMenu.Click += serviciosMenu_Click;
+        // 
+        // refaccionesMenu
+        // 
+        refaccionesMenu.Name = "refaccionesMenu";
+        refaccionesMenu.Size = new Size(102, 24);
+        refaccionesMenu.Text = "Refacciones";
+        refaccionesMenu.Click += refaccionesMenu_Click;
+        // 
+        // ordenesMenu
+        // 
+        ordenesMenu.Name = "ordenesMenu";
+        ordenesMenu.Size = new Size(78, 24);
+        ordenesMenu.Text = "Órdenes";
+        ordenesMenu.Click += ordenesMenu_Click;
+        // 
+        // barraEstado
+        // 
+        barraEstado.ImageScalingSize = new Size(20, 20);
+        barraEstado.Items.AddRange(new ToolStripItem[] { estadoLabel });
+        barraEstado.Location = new Point(0, 934);
+        barraEstado.Name = "barraEstado";
+        barraEstado.Padding = new Padding(1, 0, 16, 0);
+        barraEstado.Size = new Size(1314, 26);
+        barraEstado.TabIndex = 0;
+        // 
+        // estadoLabel
+        // 
+        estadoLabel.Name = "estadoLabel";
+        estadoLabel.Size = new Size(334, 20);
+        estadoLabel.Text = "Avance del taller | Datos temporales en memoria";
+        // 
+        // Form1
+        // 
+        AutoScaleDimensions = new SizeF(8F, 20F);
+        AutoScaleMode = AutoScaleMode.Font;
+        ClientSize = new Size(1314, 960);
+        Controls.Add(barraEstado);
+        Controls.Add(menuPrincipal);
+        IsMdiContainer = true;
+        MainMenuStrip = menuPrincipal;
+        Margin = new Padding(3, 4, 3, 4);
+        Name = "Form1";
+        StartPosition = FormStartPosition.CenterScreen;
+        Text = "Proyecto 4 parcial - Taller mecánico";
+        WindowState = FormWindowState.Maximized;
+        menuPrincipal.ResumeLayout(false);
+        menuPrincipal.PerformLayout();
+        barraEstado.ResumeLayout(false);
+        barraEstado.PerformLayout();
+        ResumeLayout(false);
+        PerformLayout();
+    }
+}
+

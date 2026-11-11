@@ -1,12 +1,42 @@
-using Proyecto_4_parcial.Negocio;
+﻿using Proyecto_4_parcial.Negocio;
 using Proyecto_4_parcial.Presentacion;
 namespace Proyecto_4_parcial;
+
 public partial class Form1 : Form
 {
     private readonly TallerServicio negocio = new();
     private bool abriendoVentana;
 
-    public Form1() { InitializeComponent(); }
+    public Form1()
+    {
+        InitializeComponent();
+        var categorias = new ToolStripMenuItem("Categorías");
+        categorias.Click += (_, _) => Abrir(() => new FrmCategorias(negocio));
+        var inventario = new ToolStripMenuItem("Inventario");
+        inventario.Click += (_, _) => Abrir(() => new FrmInventario(negocio));
+        var consultas = new ToolStripMenuItem("Consultas");
+        consultas.Click += (_, _) => Abrir(() => new FrmConsultas(negocio));
+        var cambiar = new ToolStripMenuItem("Cambiar usuario");
+        cambiar.Click += (_, _) => IniciarSesion();
+        menuPrincipal.Items.AddRange(new ToolStripItem[] { categorias, inventario, consultas, cambiar });
+        Shown += (_, _) => IniciarSesion();
+    }
+
+    private void IniciarSesion()
+    {
+        using var login = new FrmLogin();
+        if (login.ShowDialog(this) != DialogResult.OK)
+        {
+            if (perfil == "") Close();
+            return;
+        }
+        perfil = login.Perfil;
+        foreach (Form formulario in MdiChildren) formulario.Close();
+        foreach (ToolStripMenuItem opcion in menuPrincipal.Items)
+            opcion.Visible = perfil == "Administrador" || opcion.Text == "Consultas" || opcion.Text == "Cambiar usuario";
+        estadoLabel.Text = "Perfil: " + perfil + " | Datos temporales en memoria";
+    }
+    private string perfil = "";
 
     // Solo puede existir un módulo MDI abierto. La fábrica también queda dentro del try.
     private void Abrir(Func<Form> crearFormulario)
@@ -61,4 +91,5 @@ public partial class Form1 : Form
     private void serviciosMenu_Click(object? sender, EventArgs e) => Abrir(() => new FrmServicios(negocio));
     private void refaccionesMenu_Click(object? sender, EventArgs e) => Abrir(() => new FrmRefacciones(negocio));
     private void ordenesMenu_Click(object? sender, EventArgs e) => Abrir(() => new FrmOrdenes(negocio));
+
 }

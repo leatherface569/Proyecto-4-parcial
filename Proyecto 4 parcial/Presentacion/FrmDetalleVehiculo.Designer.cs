@@ -1,0 +1,471 @@
+﻿#nullable enable
+namespace Proyecto_4_parcial.Presentacion
+{
+    partial class FrmDetalleVehiculo
+    {
+        private System.ComponentModel.IContainer? components;
+        private FlowLayoutPanel panel = null!;
+        private DataGridView dgvDatos = null!;
+        private ErrorProvider errores = null!;
+        private Label lblRecomendacion = null!;
+        private ComboBox cmbCliente = null!;
+        private Label lblcmbCliente = null!;
+        private FlowLayoutPanel grupocmbCliente = null!;
+        private TextBox txtSerie = null!;
+        private Label lbltxtSerie = null!;
+        private FlowLayoutPanel grupotxtSerie = null!;
+        private TextBox txtPlaca = null!;
+        private Label lbltxtPlaca = null!;
+        private FlowLayoutPanel grupotxtPlaca = null!;
+        private TextBox txtMarca = null!;
+        private Label lbltxtMarca = null!;
+        private FlowLayoutPanel grupotxtMarca = null!;
+        private TextBox txtModelo = null!;
+        private Label lbltxtModelo = null!;
+        private FlowLayoutPanel grupotxtModelo = null!;
+        private NumericUpDown nudAnio = null!;
+        private Label lblnudAnio = null!;
+        private FlowLayoutPanel gruponudAnio = null!;
+        private NumericUpDown nudKilometraje = null!;
+        private Label lblnudKilometraje = null!;
+        private FlowLayoutPanel gruponudKilometraje = null!;
+        private NumericUpDown nudCaracteristica = null!;
+        private Label lblCaracteristica = null!;
+        private FlowLayoutPanel gruponudCaracteristica = null!;
+        private TextBox txtBuscar = null!;
+        private Label lbltxtBuscar = null!;
+        private FlowLayoutPanel grupotxtBuscar = null!;
+        private Button btnNuevo = null!;
+        private Button btnGuardar = null!;
+        private Button btnBaja = null!;
+        private Button btnCerrar = null!;
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing) components?.Dispose();
+            base.Dispose(disposing);
+        }
+        private void InitializeComponent()
+        {
+            components = new System.ComponentModel.Container();
+            panel = new FlowLayoutPanel();
+            grupocmbCliente = new FlowLayoutPanel();
+            lblcmbCliente = new Label();
+            cmbCliente = new ComboBox();
+            grupotxtSerie = new FlowLayoutPanel();
+            lbltxtSerie = new Label();
+            txtSerie = new TextBox();
+            grupotxtPlaca = new FlowLayoutPanel();
+            lbltxtPlaca = new Label();
+            txtPlaca = new TextBox();
+            grupotxtMarca = new FlowLayoutPanel();
+            lbltxtMarca = new Label();
+            txtMarca = new TextBox();
+            grupotxtModelo = new FlowLayoutPanel();
+            lbltxtModelo = new Label();
+            txtModelo = new TextBox();
+            gruponudAnio = new FlowLayoutPanel();
+            lblnudAnio = new Label();
+            nudAnio = new NumericUpDown();
+            gruponudKilometraje = new FlowLayoutPanel();
+            lblnudKilometraje = new Label();
+            nudKilometraje = new NumericUpDown();
+            gruponudCaracteristica = new FlowLayoutPanel();
+            lblCaracteristica = new Label();
+            nudCaracteristica = new NumericUpDown();
+            grupotxtBuscar = new FlowLayoutPanel();
+            lbltxtBuscar = new Label();
+            txtBuscar = new TextBox();
+            btnNuevo = new Button();
+            btnGuardar = new Button();
+            btnBaja = new Button();
+            btnCerrar = new Button();
+            lblRecomendacion = new Label();
+            dgvDatos = new DataGridView();
+            errores = new ErrorProvider(components);
+            panel.SuspendLayout();
+            grupocmbCliente.SuspendLayout();
+            grupotxtSerie.SuspendLayout();
+            grupotxtPlaca.SuspendLayout();
+            grupotxtMarca.SuspendLayout();
+            grupotxtModelo.SuspendLayout();
+            gruponudAnio.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)nudAnio).BeginInit();
+            gruponudKilometraje.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)nudKilometraje).BeginInit();
+            gruponudCaracteristica.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)nudCaracteristica).BeginInit();
+            grupotxtBuscar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvDatos).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errores).BeginInit();
+            SuspendLayout();
+            // 
+            // panel
+            // 
+            panel.AutoScroll = true;
+            panel.Controls.Add(grupocmbCliente);
+            panel.Controls.Add(grupotxtSerie);
+            panel.Controls.Add(grupotxtPlaca);
+            panel.Controls.Add(grupotxtMarca);
+            panel.Controls.Add(grupotxtModelo);
+            panel.Controls.Add(gruponudAnio);
+            panel.Controls.Add(gruponudKilometraje);
+            panel.Controls.Add(gruponudCaracteristica);
+            panel.Controls.Add(grupotxtBuscar);
+            panel.Controls.Add(btnNuevo);
+            panel.Controls.Add(btnGuardar);
+            panel.Controls.Add(btnBaja);
+            panel.Controls.Add(btnCerrar);
+            panel.Controls.Add(lblRecomendacion);
+            panel.Dock = DockStyle.Top;
+            panel.Location = new Point(0, 0);
+            panel.Name = "panel";
+            panel.Padding = new Padding(12);
+            panel.Size = new Size(1100, 300);
+            panel.TabIndex = 1;
+            // 
+            // grupocmbCliente
+            // 
+            grupocmbCliente.Controls.Add(lblcmbCliente);
+            grupocmbCliente.Controls.Add(cmbCliente);
+            grupocmbCliente.FlowDirection = FlowDirection.TopDown;
+            grupocmbCliente.Location = new Point(15, 15);
+            grupocmbCliente.Name = "grupocmbCliente";
+            grupocmbCliente.Size = new Size(230, 70);
+            grupocmbCliente.TabIndex = 0;
+            // 
+            // lblcmbCliente
+            // 
+            lblcmbCliente.AutoSize = true;
+            lblcmbCliente.Location = new Point(3, 0);
+            lblcmbCliente.Name = "lblcmbCliente";
+            lblcmbCliente.Size = new Size(94, 23);
+            lblcmbCliente.TabIndex = 0;
+            lblcmbCliente.Text = "Propietario";
+            // 
+            // cmbCliente
+            // 
+            cmbCliente.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbCliente.Location = new Point(3, 26);
+            cmbCliente.Name = "cmbCliente";
+            cmbCliente.Size = new Size(210, 31);
+            cmbCliente.TabIndex = 1;
+            // 
+            // grupotxtSerie
+            // 
+            grupotxtSerie.Controls.Add(lbltxtSerie);
+            grupotxtSerie.Controls.Add(txtSerie);
+            grupotxtSerie.FlowDirection = FlowDirection.TopDown;
+            grupotxtSerie.Location = new Point(251, 15);
+            grupotxtSerie.Name = "grupotxtSerie";
+            grupotxtSerie.Size = new Size(230, 70);
+            grupotxtSerie.TabIndex = 1;
+            // 
+            // lbltxtSerie
+            // 
+            lbltxtSerie.AutoSize = true;
+            lbltxtSerie.Location = new Point(3, 0);
+            lbltxtSerie.Name = "lbltxtSerie";
+            lbltxtSerie.Size = new Size(181, 23);
+            lbltxtSerie.TabIndex = 0;
+            lbltxtSerie.Text = "Número de serie (VIN)";
+            // 
+            // txtSerie
+            // 
+            txtSerie.Location = new Point(3, 26);
+            txtSerie.MaxLength = 17;
+            txtSerie.Name = "txtSerie";
+            txtSerie.Size = new Size(210, 30);
+            txtSerie.TabIndex = 1;
+            // 
+            // grupotxtPlaca
+            // 
+            grupotxtPlaca.Controls.Add(lbltxtPlaca);
+            grupotxtPlaca.Controls.Add(txtPlaca);
+            grupotxtPlaca.FlowDirection = FlowDirection.TopDown;
+            grupotxtPlaca.Location = new Point(487, 15);
+            grupotxtPlaca.Name = "grupotxtPlaca";
+            grupotxtPlaca.Size = new Size(230, 70);
+            grupotxtPlaca.TabIndex = 2;
+            // 
+            // lbltxtPlaca
+            // 
+            lbltxtPlaca.AutoSize = true;
+            lbltxtPlaca.Location = new Point(3, 0);
+            lbltxtPlaca.Name = "lbltxtPlaca";
+            lbltxtPlaca.Size = new Size(50, 23);
+            lbltxtPlaca.TabIndex = 0;
+            lbltxtPlaca.Text = "Placa";
+            // 
+            // txtPlaca
+            // 
+            txtPlaca.Location = new Point(3, 26);
+            txtPlaca.Name = "txtPlaca";
+            txtPlaca.Size = new Size(210, 30);
+            txtPlaca.TabIndex = 1;
+            // 
+            // grupotxtMarca
+            // 
+            grupotxtMarca.Controls.Add(lbltxtMarca);
+            grupotxtMarca.Controls.Add(txtMarca);
+            grupotxtMarca.FlowDirection = FlowDirection.TopDown;
+            grupotxtMarca.Location = new Point(723, 15);
+            grupotxtMarca.Name = "grupotxtMarca";
+            grupotxtMarca.Size = new Size(230, 70);
+            grupotxtMarca.TabIndex = 3;
+            // 
+            // lbltxtMarca
+            // 
+            lbltxtMarca.AutoSize = true;
+            lbltxtMarca.Location = new Point(3, 0);
+            lbltxtMarca.Name = "lbltxtMarca";
+            lbltxtMarca.Size = new Size(57, 23);
+            lbltxtMarca.TabIndex = 0;
+            lbltxtMarca.Text = "Marca";
+            // 
+            // txtMarca
+            // 
+            txtMarca.Location = new Point(3, 26);
+            txtMarca.Name = "txtMarca";
+            txtMarca.Size = new Size(210, 30);
+            txtMarca.TabIndex = 1;
+            // 
+            // grupotxtModelo
+            // 
+            grupotxtModelo.Controls.Add(lbltxtModelo);
+            grupotxtModelo.Controls.Add(txtModelo);
+            grupotxtModelo.FlowDirection = FlowDirection.TopDown;
+            grupotxtModelo.Location = new Point(15, 91);
+            grupotxtModelo.Name = "grupotxtModelo";
+            grupotxtModelo.Size = new Size(230, 70);
+            grupotxtModelo.TabIndex = 4;
+            // 
+            // lbltxtModelo
+            // 
+            lbltxtModelo.AutoSize = true;
+            lbltxtModelo.Location = new Point(3, 0);
+            lbltxtModelo.Name = "lbltxtModelo";
+            lbltxtModelo.Size = new Size(68, 23);
+            lbltxtModelo.TabIndex = 0;
+            lbltxtModelo.Text = "Modelo";
+            // 
+            // txtModelo
+            // 
+            txtModelo.Location = new Point(3, 26);
+            txtModelo.Name = "txtModelo";
+            txtModelo.Size = new Size(210, 30);
+            txtModelo.TabIndex = 1;
+            // 
+            // gruponudAnio
+            // 
+            gruponudAnio.Controls.Add(lblnudAnio);
+            gruponudAnio.Controls.Add(nudAnio);
+            gruponudAnio.FlowDirection = FlowDirection.TopDown;
+            gruponudAnio.Location = new Point(251, 91);
+            gruponudAnio.Name = "gruponudAnio";
+            gruponudAnio.Size = new Size(230, 70);
+            gruponudAnio.TabIndex = 5;
+            // 
+            // lblnudAnio
+            // 
+            lblnudAnio.AutoSize = true;
+            lblnudAnio.Location = new Point(3, 0);
+            lblnudAnio.Name = "lblnudAnio";
+            lblnudAnio.Size = new Size(41, 23);
+            lblnudAnio.TabIndex = 0;
+            lblnudAnio.Text = "Año";
+            // 
+            // nudAnio
+            // 
+            nudAnio.Location = new Point(3, 26);
+            nudAnio.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
+            nudAnio.Name = "nudAnio";
+            nudAnio.Size = new Size(210, 30);
+            nudAnio.TabIndex = 1;
+            // 
+            // gruponudKilometraje
+            // 
+            gruponudKilometraje.Controls.Add(lblnudKilometraje);
+            gruponudKilometraje.Controls.Add(nudKilometraje);
+            gruponudKilometraje.FlowDirection = FlowDirection.TopDown;
+            gruponudKilometraje.Location = new Point(487, 91);
+            gruponudKilometraje.Name = "gruponudKilometraje";
+            gruponudKilometraje.Size = new Size(230, 70);
+            gruponudKilometraje.TabIndex = 6;
+            // 
+            // lblnudKilometraje
+            // 
+            lblnudKilometraje.AutoSize = true;
+            lblnudKilometraje.Location = new Point(3, 0);
+            lblnudKilometraje.Name = "lblnudKilometraje";
+            lblnudKilometraje.Size = new Size(96, 23);
+            lblnudKilometraje.TabIndex = 0;
+            lblnudKilometraje.Text = "Kilometraje";
+            // 
+            // nudKilometraje
+            // 
+            nudKilometraje.Location = new Point(3, 26);
+            nudKilometraje.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
+            nudKilometraje.Name = "nudKilometraje";
+            nudKilometraje.Size = new Size(210, 30);
+            nudKilometraje.TabIndex = 1;
+            // 
+            // gruponudCaracteristica
+            // 
+            gruponudCaracteristica.Controls.Add(lblCaracteristica);
+            gruponudCaracteristica.Controls.Add(nudCaracteristica);
+            gruponudCaracteristica.FlowDirection = FlowDirection.TopDown;
+            gruponudCaracteristica.Location = new Point(723, 91);
+            gruponudCaracteristica.Name = "gruponudCaracteristica";
+            gruponudCaracteristica.Size = new Size(230, 70);
+            gruponudCaracteristica.TabIndex = 7;
+            // 
+            // lblCaracteristica
+            // 
+            lblCaracteristica.AutoSize = true;
+            lblCaracteristica.Location = new Point(3, 0);
+            lblCaracteristica.Name = "lblCaracteristica";
+            lblCaracteristica.Size = new Size(119, 23);
+            lblCaracteristica.TabIndex = 0;
+            lblCaracteristica.Text = "Características";
+            // 
+            // nudCaracteristica
+            // 
+            nudCaracteristica.DecimalPlaces = 2;
+            nudCaracteristica.Location = new Point(3, 26);
+            nudCaracteristica.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
+            nudCaracteristica.Name = "nudCaracteristica";
+            nudCaracteristica.Size = new Size(210, 30);
+            nudCaracteristica.TabIndex = 1;
+            // 
+            // grupotxtBuscar
+            // 
+            grupotxtBuscar.Controls.Add(lbltxtBuscar);
+            grupotxtBuscar.Controls.Add(txtBuscar);
+            grupotxtBuscar.FlowDirection = FlowDirection.TopDown;
+            grupotxtBuscar.Location = new Point(15, 167);
+            grupotxtBuscar.Name = "grupotxtBuscar";
+            grupotxtBuscar.Size = new Size(230, 70);
+            grupotxtBuscar.TabIndex = 8;
+            // 
+            // lbltxtBuscar
+            // 
+            lbltxtBuscar.AutoSize = true;
+            lbltxtBuscar.Location = new Point(3, 0);
+            lbltxtBuscar.Name = "lbltxtBuscar";
+            lbltxtBuscar.Size = new Size(60, 23);
+            lbltxtBuscar.TabIndex = 0;
+            lbltxtBuscar.Text = "Buscar";
+            // 
+            // txtBuscar
+            // 
+            txtBuscar.Location = new Point(3, 26);
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.Size = new Size(210, 30);
+            txtBuscar.TabIndex = 1;
+            // 
+            // btnNuevo
+            // 
+            btnNuevo.AutoSize = true;
+            btnNuevo.Location = new Point(256, 190);
+            btnNuevo.Margin = new Padding(8, 26, 8, 0);
+            btnNuevo.Name = "btnNuevo";
+            btnNuevo.Size = new Size(75, 35);
+            btnNuevo.TabIndex = 9;
+            btnNuevo.Text = "Nuevo";
+            // 
+            // btnGuardar
+            // 
+            btnGuardar.AutoSize = true;
+            btnGuardar.Location = new Point(347, 190);
+            btnGuardar.Margin = new Padding(8, 26, 8, 0);
+            btnGuardar.Name = "btnGuardar";
+            btnGuardar.Size = new Size(82, 35);
+            btnGuardar.TabIndex = 10;
+            btnGuardar.Text = "Guardar";
+            // 
+            // btnBaja
+            // 
+            btnBaja.AutoSize = true;
+            btnBaja.Location = new Point(445, 190);
+            btnBaja.Margin = new Padding(8, 26, 8, 0);
+            btnBaja.Name = "btnBaja";
+            btnBaja.Size = new Size(108, 35);
+            btnBaja.TabIndex = 11;
+            btnBaja.Text = "Dar de baja";
+            // 
+            // btnCerrar
+            // 
+            btnCerrar.AutoSize = true;
+            btnCerrar.Location = new Point(569, 190);
+            btnCerrar.Margin = new Padding(8, 26, 8, 0);
+            btnCerrar.Name = "btnCerrar";
+            btnCerrar.Size = new Size(75, 35);
+            btnCerrar.TabIndex = 12;
+            btnCerrar.Text = "Cerrar";
+            // 
+            // lblRecomendacion
+            // 
+            lblRecomendacion.AutoSize = true;
+            lblRecomendacion.Location = new Point(655, 164);
+            lblRecomendacion.Name = "lblRecomendacion";
+            lblRecomendacion.Size = new Size(0, 23);
+            lblRecomendacion.TabIndex = 13;
+            // 
+            // dgvDatos
+            // 
+            dgvDatos.AllowUserToAddRows = false;
+            dgvDatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            dgvDatos.ColumnHeadersHeight = 29;
+            dgvDatos.Dock = DockStyle.Fill;
+            dgvDatos.Location = new Point(0, 300);
+            dgvDatos.MultiSelect = false;
+            dgvDatos.Name = "dgvDatos";
+            dgvDatos.ReadOnly = true;
+            dgvDatos.RowHeadersWidth = 51;
+            dgvDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvDatos.Size = new Size(1100, 400);
+            dgvDatos.TabIndex = 0;
+            // 
+            // errores
+            // 
+            errores.ContainerControl = this;
+            // 
+            // FrmDetalleVehiculo
+            // 
+            AutoScaleDimensions = new SizeF(9F, 23F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1100, 700);
+            Controls.Add(dgvDatos);
+            Controls.Add(panel);
+            Font = new Font("Segoe UI", 10F);
+            Name = "FrmDetalleVehiculo";
+            Text = "Registro de vehículos";
+            panel.ResumeLayout(false);
+            panel.PerformLayout();
+            grupocmbCliente.ResumeLayout(false);
+            grupocmbCliente.PerformLayout();
+            grupotxtSerie.ResumeLayout(false);
+            grupotxtSerie.PerformLayout();
+            grupotxtPlaca.ResumeLayout(false);
+            grupotxtPlaca.PerformLayout();
+            grupotxtMarca.ResumeLayout(false);
+            grupotxtMarca.PerformLayout();
+            grupotxtModelo.ResumeLayout(false);
+            grupotxtModelo.PerformLayout();
+            gruponudAnio.ResumeLayout(false);
+            gruponudAnio.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)nudAnio).EndInit();
+            gruponudKilometraje.ResumeLayout(false);
+            gruponudKilometraje.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)nudKilometraje).EndInit();
+            gruponudCaracteristica.ResumeLayout(false);
+            gruponudCaracteristica.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)nudCaracteristica).EndInit();
+            grupotxtBuscar.ResumeLayout(false);
+            grupotxtBuscar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvDatos).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errores).EndInit();
+            ResumeLayout(false);
+        }
+    }
+}
