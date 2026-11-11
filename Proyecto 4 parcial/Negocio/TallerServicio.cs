@@ -1,5 +1,5 @@
 ﻿using Proyecto_4_parcial.Datos;
-using Proyecto_4_parcial.Entidades;
+using Proyecto_4_parcial.Modelos;
 using System.Text.RegularExpressions;
 
 namespace Proyecto_4_parcial.Negocio
@@ -113,7 +113,7 @@ namespace Proyecto_4_parcial.Negocio
             ValidarEdicion(orden);
             Servicio servicio = Datos.Servicios.Todos().First(s => s.Id == servicioId);
             if (orden.Servicios.Any(s => s.ServicioId == servicioId)) throw new InvalidOperationException("El servicio ya está en la orden.");
-            orden.AgregarServicio(new DetalleServicio { ServicioId = servicio.Id, Precio = servicio.Precio });
+            orden.AgregarServicio(new DetalleServicio(servicio.Id, servicio.Precio));
         }
 
         public void AgregarRefaccion(OrdenServicio orden, int refaccionId, int cantidad)
@@ -122,7 +122,7 @@ namespace Proyecto_4_parcial.Negocio
             if (cantidad <= 0) throw new ValidacionException("Cantidad", "La cantidad debe ser mayor a cero.");
             Refaccion refaccion = Datos.Refacciones.Todos().First(r => r.Id == refaccionId);
             if (refaccion.Stock < cantidad) throw new StockInsuficienteException();
-            orden.AgregarRefaccion(new DetalleRefaccion { RefaccionId = refaccionId, Cantidad = cantidad, Precio = refaccion.Precio });
+            orden.AgregarRefaccion(new DetalleRefaccion(refaccionId, cantidad, refaccion.Precio));
             MoverInventario(refaccionId, -cantidad, "Salida por orden " + orden.Id);
         }
 
@@ -157,7 +157,6 @@ namespace Proyecto_4_parcial.Negocio
             if (orden.Estado == EstadoOrden.Cancelada || orden.Estado == EstadoOrden.Entregada || orden.Estado == EstadoOrden.Terminada)
                 throw new EstadoOrdenException();
             if (orden.Pagado > 0) throw new InvalidOperationException("No se puede cancelar una orden con pagos registrados.");
-            // Valida todas las devoluciones antes de modificar el inventario.
             foreach (var grupo in orden.Refacciones.GroupBy(r => r.RefaccionId))
             {
                 Refaccion refaccion = Datos.Refacciones.Todos().First(r => r.Id == grupo.Key);

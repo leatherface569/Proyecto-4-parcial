@@ -1,7 +1,21 @@
-﻿namespace Proyecto_4_parcial.Entidades
+﻿namespace Proyecto_4_parcial.Modelos
 {
     public class OrdenServicio : Entidad
     {
+        public OrdenServicio() { }
+
+        public OrdenServicio(int id, int clienteId, int vehiculoId, int mecanicoId, int kilometraje, DateTime fecha, string observaciones, string diagnostico, EstadoOrden estado) : base(id)
+        {
+            ClienteId = clienteId;
+            VehiculoId = vehiculoId;
+            MecanicoId = mecanicoId;
+            Kilometraje = kilometraje;
+            Fecha = fecha;
+            Observaciones = observaciones;
+            Diagnostico = diagnostico;
+            Estado = estado;
+        }
+
         public int ClienteId { get; set; }
         public int VehiculoId { get; set; }
         public int MecanicoId { get; set; }

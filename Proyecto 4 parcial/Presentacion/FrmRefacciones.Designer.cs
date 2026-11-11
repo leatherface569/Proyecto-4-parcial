@@ -75,9 +75,6 @@ namespace Proyecto_4_parcial.Presentacion
             ((System.ComponentModel.ISupportInitialize)dgvDatos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errores).BeginInit();
             SuspendLayout();
-            // 
-            // panel
-            // 
             panel.AutoScroll = true;
             panel.Controls.Add(grupocmbCategoriaId);
             panel.Controls.Add(grupotxtNombre);
@@ -95,9 +92,6 @@ namespace Proyecto_4_parcial.Presentacion
             panel.Padding = new Padding(12);
             panel.Size = new Size(1100, 230);
             panel.TabIndex = 1;
-            // 
-            // grupocmbCategoriaId
-            // 
             grupocmbCategoriaId.Controls.Add(etiquetacmbCategoriaId);
             grupocmbCategoriaId.Controls.Add(cmbCategoriaId);
             grupocmbCategoriaId.FlowDirection = FlowDirection.TopDown;
@@ -106,26 +100,17 @@ namespace Proyecto_4_parcial.Presentacion
             grupocmbCategoriaId.Size = new Size(230, 70);
             grupocmbCategoriaId.TabIndex = 0;
             grupocmbCategoriaId.WrapContents = false;
-            // 
-            // etiquetacmbCategoriaId
-            // 
             etiquetacmbCategoriaId.AutoSize = true;
             etiquetacmbCategoriaId.Location = new Point(3, 0);
             etiquetacmbCategoriaId.Name = "etiquetacmbCategoriaId";
             etiquetacmbCategoriaId.Size = new Size(84, 23);
             etiquetacmbCategoriaId.TabIndex = 0;
             etiquetacmbCategoriaId.Text = "Categoría";
-            // 
-            // cmbCategoriaId
-            // 
             cmbCategoriaId.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCategoriaId.Location = new Point(3, 26);
             cmbCategoriaId.Name = "cmbCategoriaId";
             cmbCategoriaId.Size = new Size(210, 31);
             cmbCategoriaId.TabIndex = 1;
-            // 
-            // grupotxtNombre
-            // 
             grupotxtNombre.Controls.Add(etiquetatxtNombre);
             grupotxtNombre.Controls.Add(txtNombre);
             grupotxtNombre.FlowDirection = FlowDirection.TopDown;
@@ -134,26 +119,17 @@ namespace Proyecto_4_parcial.Presentacion
             grupotxtNombre.Size = new Size(230, 70);
             grupotxtNombre.TabIndex = 1;
             grupotxtNombre.WrapContents = false;
-            // 
-            // etiquetatxtNombre
-            // 
             etiquetatxtNombre.AutoSize = true;
             etiquetatxtNombre.Location = new Point(3, 0);
             etiquetatxtNombre.Name = "etiquetatxtNombre";
             etiquetatxtNombre.Size = new Size(73, 23);
             etiquetatxtNombre.TabIndex = 0;
             etiquetatxtNombre.Text = "Nombre";
-            // 
-            // txtNombre
-            // 
             txtNombre.Location = new Point(3, 26);
             txtNombre.MaxLength = 250;
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(210, 30);
             txtNombre.TabIndex = 1;
-            // 
-            // gruponudPrecio
-            // 
             gruponudPrecio.Controls.Add(etiquetanudPrecio);
             gruponudPrecio.Controls.Add(nudPrecio);
             gruponudPrecio.FlowDirection = FlowDirection.TopDown;
@@ -162,27 +138,18 @@ namespace Proyecto_4_parcial.Presentacion
             gruponudPrecio.Size = new Size(230, 70);
             gruponudPrecio.TabIndex = 2;
             gruponudPrecio.WrapContents = false;
-            // 
-            // etiquetanudPrecio
-            // 
             etiquetanudPrecio.AutoSize = true;
             etiquetanudPrecio.Location = new Point(3, 0);
             etiquetanudPrecio.Name = "etiquetanudPrecio";
             etiquetanudPrecio.Size = new Size(57, 23);
             etiquetanudPrecio.TabIndex = 0;
             etiquetanudPrecio.Text = "Precio";
-            // 
-            // nudPrecio
-            // 
             nudPrecio.DecimalPlaces = 2;
             nudPrecio.Location = new Point(3, 26);
             nudPrecio.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
             nudPrecio.Name = "nudPrecio";
             nudPrecio.Size = new Size(210, 30);
             nudPrecio.TabIndex = 1;
-            // 
-            // gruponudStock
-            // 
             gruponudStock.Controls.Add(etiquetanudStock);
             gruponudStock.Controls.Add(nudStock);
             gruponudStock.FlowDirection = FlowDirection.TopDown;
@@ -191,26 +158,17 @@ namespace Proyecto_4_parcial.Presentacion
             gruponudStock.Size = new Size(230, 70);
             gruponudStock.TabIndex = 3;
             gruponudStock.WrapContents = false;
-            // 
-            // etiquetanudStock
-            // 
             etiquetanudStock.AutoSize = true;
             etiquetanudStock.Location = new Point(3, 0);
             etiquetanudStock.Name = "etiquetanudStock";
             etiquetanudStock.Size = new Size(98, 23);
             etiquetanudStock.TabIndex = 0;
             etiquetanudStock.Text = "Stock inicial";
-            // 
-            // nudStock
-            // 
             nudStock.Location = new Point(3, 26);
             nudStock.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
             nudStock.Name = "nudStock";
             nudStock.Size = new Size(210, 30);
             nudStock.TabIndex = 1;
-            // 
-            // gruponudStockMinimo
-            // 
             gruponudStockMinimo.Controls.Add(etiquetanudStockMinimo);
             gruponudStockMinimo.Controls.Add(nudStockMinimo);
             gruponudStockMinimo.FlowDirection = FlowDirection.TopDown;
@@ -219,26 +177,17 @@ namespace Proyecto_4_parcial.Presentacion
             gruponudStockMinimo.Size = new Size(230, 70);
             gruponudStockMinimo.TabIndex = 4;
             gruponudStockMinimo.WrapContents = false;
-            // 
-            // etiquetanudStockMinimo
-            // 
             etiquetanudStockMinimo.AutoSize = true;
             etiquetanudStockMinimo.Location = new Point(3, 0);
             etiquetanudStockMinimo.Name = "etiquetanudStockMinimo";
             etiquetanudStockMinimo.Size = new Size(113, 23);
             etiquetanudStockMinimo.TabIndex = 0;
             etiquetanudStockMinimo.Text = "Stock mínimo";
-            // 
-            // nudStockMinimo
-            // 
             nudStockMinimo.Location = new Point(3, 26);
             nudStockMinimo.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
             nudStockMinimo.Name = "nudStockMinimo";
             nudStockMinimo.Size = new Size(210, 30);
             nudStockMinimo.TabIndex = 1;
-            // 
-            // grupotxtBuscar
-            // 
             grupotxtBuscar.Controls.Add(etiquetatxtBuscar);
             grupotxtBuscar.Controls.Add(txtBuscar);
             grupotxtBuscar.FlowDirection = FlowDirection.TopDown;
@@ -247,26 +196,17 @@ namespace Proyecto_4_parcial.Presentacion
             grupotxtBuscar.Size = new Size(230, 70);
             grupotxtBuscar.TabIndex = 5;
             grupotxtBuscar.WrapContents = false;
-            // 
-            // etiquetatxtBuscar
-            // 
             etiquetatxtBuscar.AutoSize = true;
             etiquetatxtBuscar.Location = new Point(3, 0);
             etiquetatxtBuscar.Name = "etiquetatxtBuscar";
             etiquetatxtBuscar.Size = new Size(60, 23);
             etiquetatxtBuscar.TabIndex = 0;
             etiquetatxtBuscar.Text = "Buscar";
-            // 
-            // txtBuscar
-            // 
             txtBuscar.Location = new Point(3, 26);
             txtBuscar.MaxLength = 250;
             txtBuscar.Name = "txtBuscar";
             txtBuscar.Size = new Size(210, 30);
             txtBuscar.TabIndex = 1;
-            // 
-            // btnNuevo
-            // 
             btnNuevo.AutoSize = true;
             btnNuevo.Location = new Point(492, 114);
             btnNuevo.Margin = new Padding(8, 26, 8, 0);
@@ -274,9 +214,6 @@ namespace Proyecto_4_parcial.Presentacion
             btnNuevo.Size = new Size(75, 35);
             btnNuevo.TabIndex = 6;
             btnNuevo.Text = "Nuevo";
-            // 
-            // btnGuardar
-            // 
             btnGuardar.AutoSize = true;
             btnGuardar.Location = new Point(583, 114);
             btnGuardar.Margin = new Padding(8, 26, 8, 0);
@@ -284,9 +221,6 @@ namespace Proyecto_4_parcial.Presentacion
             btnGuardar.Size = new Size(82, 35);
             btnGuardar.TabIndex = 7;
             btnGuardar.Text = "Guardar";
-            // 
-            // btnBaja
-            // 
             btnBaja.AutoSize = true;
             btnBaja.Location = new Point(681, 114);
             btnBaja.Margin = new Padding(8, 26, 8, 0);
@@ -294,9 +228,6 @@ namespace Proyecto_4_parcial.Presentacion
             btnBaja.Size = new Size(108, 35);
             btnBaja.TabIndex = 8;
             btnBaja.Text = "Dar de baja";
-            // 
-            // btnCerrar
-            // 
             btnCerrar.AutoSize = true;
             btnCerrar.Location = new Point(805, 114);
             btnCerrar.Margin = new Padding(8, 26, 8, 0);
@@ -304,9 +235,6 @@ namespace Proyecto_4_parcial.Presentacion
             btnCerrar.Size = new Size(75, 35);
             btnCerrar.TabIndex = 9;
             btnCerrar.Text = "Cerrar";
-            // 
-            // dgvDatos
-            // 
             dgvDatos.AllowUserToAddRows = false;
             dgvDatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
             dgvDatos.ColumnHeadersHeight = 29;
@@ -319,13 +247,7 @@ namespace Proyecto_4_parcial.Presentacion
             dgvDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvDatos.Size = new Size(1100, 470);
             dgvDatos.TabIndex = 0;
-            // 
-            // errores
-            // 
             errores.ContainerControl = this;
-            // 
-            // FrmRefacciones
-            // 
             AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1100, 700);

@@ -1,7 +1,20 @@
-﻿namespace Proyecto_4_parcial.Entidades
+﻿namespace Proyecto_4_parcial.Modelos
 {
     public abstract class Vehiculo : Entidad
     {
+        protected Vehiculo() { }
+
+        protected Vehiculo(int id, int clienteId, string numeroSerie, string placa, string marca, string modelo, int anio, int kilometraje) : base(id)
+        {
+            ClienteId = clienteId;
+            NumeroSerie = numeroSerie;
+            Placa = placa;
+            Marca = marca;
+            Modelo = modelo;
+            Anio = anio;
+            Kilometraje = kilometraje;
+        }
+
         public int ClienteId { get; set; }
         public string NumeroSerie { get; set; } = "";
         public string Placa { get; set; } = "";

@@ -1,4 +1,4 @@
-﻿using Proyecto_4_parcial.Entidades;
+﻿using Proyecto_4_parcial.Modelos;
 namespace Proyecto_4_parcial.Datos
 {
     public class Almacen

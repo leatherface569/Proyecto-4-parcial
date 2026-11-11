@@ -98,9 +98,6 @@ namespace Proyecto_4_parcial.Presentacion
             ((System.ComponentModel.ISupportInitialize)dgvDatos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errores).BeginInit();
             SuspendLayout();
-            // 
-            // panel
-            // 
             panel.AutoScroll = true;
             panel.Controls.Add(grupocmbCliente);
             panel.Controls.Add(grupotxtSerie);
@@ -122,9 +119,6 @@ namespace Proyecto_4_parcial.Presentacion
             panel.Padding = new Padding(12);
             panel.Size = new Size(1100, 300);
             panel.TabIndex = 1;
-            // 
-            // grupocmbCliente
-            // 
             grupocmbCliente.Controls.Add(lblcmbCliente);
             grupocmbCliente.Controls.Add(cmbCliente);
             grupocmbCliente.FlowDirection = FlowDirection.TopDown;
@@ -132,26 +126,17 @@ namespace Proyecto_4_parcial.Presentacion
             grupocmbCliente.Name = "grupocmbCliente";
             grupocmbCliente.Size = new Size(230, 70);
             grupocmbCliente.TabIndex = 0;
-            // 
-            // lblcmbCliente
-            // 
             lblcmbCliente.AutoSize = true;
             lblcmbCliente.Location = new Point(3, 0);
             lblcmbCliente.Name = "lblcmbCliente";
             lblcmbCliente.Size = new Size(94, 23);
             lblcmbCliente.TabIndex = 0;
             lblcmbCliente.Text = "Propietario";
-            // 
-            // cmbCliente
-            // 
             cmbCliente.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCliente.Location = new Point(3, 26);
             cmbCliente.Name = "cmbCliente";
             cmbCliente.Size = new Size(210, 31);
             cmbCliente.TabIndex = 1;
-            // 
-            // grupotxtSerie
-            // 
             grupotxtSerie.Controls.Add(lbltxtSerie);
             grupotxtSerie.Controls.Add(txtSerie);
             grupotxtSerie.FlowDirection = FlowDirection.TopDown;
@@ -159,26 +144,17 @@ namespace Proyecto_4_parcial.Presentacion
             grupotxtSerie.Name = "grupotxtSerie";
             grupotxtSerie.Size = new Size(230, 70);
             grupotxtSerie.TabIndex = 1;
-            // 
-            // lbltxtSerie
-            // 
             lbltxtSerie.AutoSize = true;
             lbltxtSerie.Location = new Point(3, 0);
             lbltxtSerie.Name = "lbltxtSerie";
             lbltxtSerie.Size = new Size(181, 23);
             lbltxtSerie.TabIndex = 0;
             lbltxtSerie.Text = "Número de serie (VIN)";
-            // 
-            // txtSerie
-            // 
             txtSerie.Location = new Point(3, 26);
             txtSerie.MaxLength = 17;
             txtSerie.Name = "txtSerie";
             txtSerie.Size = new Size(210, 30);
             txtSerie.TabIndex = 1;
-            // 
-            // grupotxtPlaca
-            // 
             grupotxtPlaca.Controls.Add(lbltxtPlaca);
             grupotxtPlaca.Controls.Add(txtPlaca);
             grupotxtPlaca.FlowDirection = FlowDirection.TopDown;
@@ -186,25 +162,16 @@ namespace Proyecto_4_parcial.Presentacion
             grupotxtPlaca.Name = "grupotxtPlaca";
             grupotxtPlaca.Size = new Size(230, 70);
             grupotxtPlaca.TabIndex = 2;
-            // 
-            // lbltxtPlaca
-            // 
             lbltxtPlaca.AutoSize = true;
             lbltxtPlaca.Location = new Point(3, 0);
             lbltxtPlaca.Name = "lbltxtPlaca";
             lbltxtPlaca.Size = new Size(50, 23);
             lbltxtPlaca.TabIndex = 0;
             lbltxtPlaca.Text = "Placa";
-            // 
-            // txtPlaca
-            // 
             txtPlaca.Location = new Point(3, 26);
             txtPlaca.Name = "txtPlaca";
             txtPlaca.Size = new Size(210, 30);
             txtPlaca.TabIndex = 1;
-            // 
-            // grupotxtMarca
-            // 
             grupotxtMarca.Controls.Add(lbltxtMarca);
             grupotxtMarca.Controls.Add(txtMarca);
             grupotxtMarca.FlowDirection = FlowDirection.TopDown;
@@ -212,25 +179,16 @@ namespace Proyecto_4_parcial.Presentacion
             grupotxtMarca.Name = "grupotxtMarca";
             grupotxtMarca.Size = new Size(230, 70);
             grupotxtMarca.TabIndex = 3;
-            // 
-            // lbltxtMarca
-            // 
             lbltxtMarca.AutoSize = true;
             lbltxtMarca.Location = new Point(3, 0);
             lbltxtMarca.Name = "lbltxtMarca";
             lbltxtMarca.Size = new Size(57, 23);
             lbltxtMarca.TabIndex = 0;
             lbltxtMarca.Text = "Marca";
-            // 
-            // txtMarca
-            // 
             txtMarca.Location = new Point(3, 26);
             txtMarca.Name = "txtMarca";
             txtMarca.Size = new Size(210, 30);
             txtMarca.TabIndex = 1;
-            // 
-            // grupotxtModelo
-            // 
             grupotxtModelo.Controls.Add(lbltxtModelo);
             grupotxtModelo.Controls.Add(txtModelo);
             grupotxtModelo.FlowDirection = FlowDirection.TopDown;
@@ -238,25 +196,16 @@ namespace Proyecto_4_parcial.Presentacion
             grupotxtModelo.Name = "grupotxtModelo";
             grupotxtModelo.Size = new Size(230, 70);
             grupotxtModelo.TabIndex = 4;
-            // 
-            // lbltxtModelo
-            // 
             lbltxtModelo.AutoSize = true;
             lbltxtModelo.Location = new Point(3, 0);
             lbltxtModelo.Name = "lbltxtModelo";
             lbltxtModelo.Size = new Size(68, 23);
             lbltxtModelo.TabIndex = 0;
             lbltxtModelo.Text = "Modelo";
-            // 
-            // txtModelo
-            // 
             txtModelo.Location = new Point(3, 26);
             txtModelo.Name = "txtModelo";
             txtModelo.Size = new Size(210, 30);
             txtModelo.TabIndex = 1;
-            // 
-            // gruponudAnio
-            // 
             gruponudAnio.Controls.Add(lblnudAnio);
             gruponudAnio.Controls.Add(nudAnio);
             gruponudAnio.FlowDirection = FlowDirection.TopDown;
@@ -264,26 +213,17 @@ namespace Proyecto_4_parcial.Presentacion
             gruponudAnio.Name = "gruponudAnio";
             gruponudAnio.Size = new Size(230, 70);
             gruponudAnio.TabIndex = 5;
-            // 
-            // lblnudAnio
-            // 
             lblnudAnio.AutoSize = true;
             lblnudAnio.Location = new Point(3, 0);
             lblnudAnio.Name = "lblnudAnio";
             lblnudAnio.Size = new Size(41, 23);
             lblnudAnio.TabIndex = 0;
             lblnudAnio.Text = "Año";
-            // 
-            // nudAnio
-            // 
             nudAnio.Location = new Point(3, 26);
             nudAnio.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
             nudAnio.Name = "nudAnio";
             nudAnio.Size = new Size(210, 30);
             nudAnio.TabIndex = 1;
-            // 
-            // gruponudKilometraje
-            // 
             gruponudKilometraje.Controls.Add(lblnudKilometraje);
             gruponudKilometraje.Controls.Add(nudKilometraje);
             gruponudKilometraje.FlowDirection = FlowDirection.TopDown;
@@ -291,26 +231,17 @@ namespace Proyecto_4_parcial.Presentacion
             gruponudKilometraje.Name = "gruponudKilometraje";
             gruponudKilometraje.Size = new Size(230, 70);
             gruponudKilometraje.TabIndex = 6;
-            // 
-            // lblnudKilometraje
-            // 
             lblnudKilometraje.AutoSize = true;
             lblnudKilometraje.Location = new Point(3, 0);
             lblnudKilometraje.Name = "lblnudKilometraje";
             lblnudKilometraje.Size = new Size(96, 23);
             lblnudKilometraje.TabIndex = 0;
             lblnudKilometraje.Text = "Kilometraje";
-            // 
-            // nudKilometraje
-            // 
             nudKilometraje.Location = new Point(3, 26);
             nudKilometraje.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
             nudKilometraje.Name = "nudKilometraje";
             nudKilometraje.Size = new Size(210, 30);
             nudKilometraje.TabIndex = 1;
-            // 
-            // gruponudCaracteristica
-            // 
             gruponudCaracteristica.Controls.Add(lblCaracteristica);
             gruponudCaracteristica.Controls.Add(nudCaracteristica);
             gruponudCaracteristica.FlowDirection = FlowDirection.TopDown;
@@ -318,27 +249,18 @@ namespace Proyecto_4_parcial.Presentacion
             gruponudCaracteristica.Name = "gruponudCaracteristica";
             gruponudCaracteristica.Size = new Size(230, 70);
             gruponudCaracteristica.TabIndex = 7;
-            // 
-            // lblCaracteristica
-            // 
             lblCaracteristica.AutoSize = true;
             lblCaracteristica.Location = new Point(3, 0);
             lblCaracteristica.Name = "lblCaracteristica";
             lblCaracteristica.Size = new Size(119, 23);
             lblCaracteristica.TabIndex = 0;
             lblCaracteristica.Text = "Características";
-            // 
-            // nudCaracteristica
-            // 
             nudCaracteristica.DecimalPlaces = 2;
             nudCaracteristica.Location = new Point(3, 26);
             nudCaracteristica.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
             nudCaracteristica.Name = "nudCaracteristica";
             nudCaracteristica.Size = new Size(210, 30);
             nudCaracteristica.TabIndex = 1;
-            // 
-            // grupotxtBuscar
-            // 
             grupotxtBuscar.Controls.Add(lbltxtBuscar);
             grupotxtBuscar.Controls.Add(txtBuscar);
             grupotxtBuscar.FlowDirection = FlowDirection.TopDown;
@@ -346,25 +268,16 @@ namespace Proyecto_4_parcial.Presentacion
             grupotxtBuscar.Name = "grupotxtBuscar";
             grupotxtBuscar.Size = new Size(230, 70);
             grupotxtBuscar.TabIndex = 8;
-            // 
-            // lbltxtBuscar
-            // 
             lbltxtBuscar.AutoSize = true;
             lbltxtBuscar.Location = new Point(3, 0);
             lbltxtBuscar.Name = "lbltxtBuscar";
             lbltxtBuscar.Size = new Size(60, 23);
             lbltxtBuscar.TabIndex = 0;
             lbltxtBuscar.Text = "Buscar";
-            // 
-            // txtBuscar
-            // 
             txtBuscar.Location = new Point(3, 26);
             txtBuscar.Name = "txtBuscar";
             txtBuscar.Size = new Size(210, 30);
             txtBuscar.TabIndex = 1;
-            // 
-            // btnNuevo
-            // 
             btnNuevo.AutoSize = true;
             btnNuevo.Location = new Point(256, 190);
             btnNuevo.Margin = new Padding(8, 26, 8, 0);
@@ -372,9 +285,6 @@ namespace Proyecto_4_parcial.Presentacion
             btnNuevo.Size = new Size(75, 35);
             btnNuevo.TabIndex = 9;
             btnNuevo.Text = "Nuevo";
-            // 
-            // btnGuardar
-            // 
             btnGuardar.AutoSize = true;
             btnGuardar.Location = new Point(347, 190);
             btnGuardar.Margin = new Padding(8, 26, 8, 0);
@@ -382,9 +292,6 @@ namespace Proyecto_4_parcial.Presentacion
             btnGuardar.Size = new Size(82, 35);
             btnGuardar.TabIndex = 10;
             btnGuardar.Text = "Guardar";
-            // 
-            // btnBaja
-            // 
             btnBaja.AutoSize = true;
             btnBaja.Location = new Point(445, 190);
             btnBaja.Margin = new Padding(8, 26, 8, 0);
@@ -392,9 +299,6 @@ namespace Proyecto_4_parcial.Presentacion
             btnBaja.Size = new Size(108, 35);
             btnBaja.TabIndex = 11;
             btnBaja.Text = "Dar de baja";
-            // 
-            // btnCerrar
-            // 
             btnCerrar.AutoSize = true;
             btnCerrar.Location = new Point(569, 190);
             btnCerrar.Margin = new Padding(8, 26, 8, 0);
@@ -402,17 +306,11 @@ namespace Proyecto_4_parcial.Presentacion
             btnCerrar.Size = new Size(75, 35);
             btnCerrar.TabIndex = 12;
             btnCerrar.Text = "Cerrar";
-            // 
-            // lblRecomendacion
-            // 
             lblRecomendacion.AutoSize = true;
             lblRecomendacion.Location = new Point(655, 164);
             lblRecomendacion.Name = "lblRecomendacion";
             lblRecomendacion.Size = new Size(0, 23);
             lblRecomendacion.TabIndex = 13;
-            // 
-            // dgvDatos
-            // 
             dgvDatos.AllowUserToAddRows = false;
             dgvDatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
             dgvDatos.ColumnHeadersHeight = 29;
@@ -425,13 +323,7 @@ namespace Proyecto_4_parcial.Presentacion
             dgvDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvDatos.Size = new Size(1100, 400);
             dgvDatos.TabIndex = 0;
-            // 
-            // errores
-            // 
             errores.ContainerControl = this;
-            // 
-            // FrmDetalleVehiculo
-            // 
             AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1100, 700);

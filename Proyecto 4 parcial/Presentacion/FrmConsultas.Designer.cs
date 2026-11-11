@@ -56,9 +56,6 @@ namespace Proyecto_4_parcial.Presentacion
             ((System.ComponentModel.ISupportInitialize)dgvDatos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errores).BeginInit();
             SuspendLayout();
-            // 
-            // panel
-            // 
             panel.AutoScroll = true;
             panel.Controls.Add(grupocmbVehiculo);
             panel.Controls.Add(grupocmbCliente);
@@ -78,9 +75,6 @@ namespace Proyecto_4_parcial.Presentacion
             panel.Padding = new Padding(12);
             panel.Size = new Size(1100, 240);
             panel.TabIndex = 1;
-            // 
-            // grupocmbVehiculo
-            // 
             grupocmbVehiculo.Controls.Add(etiquetacmbVehiculo);
             grupocmbVehiculo.Controls.Add(cmbVehiculo);
             grupocmbVehiculo.FlowDirection = FlowDirection.TopDown;
@@ -89,26 +83,17 @@ namespace Proyecto_4_parcial.Presentacion
             grupocmbVehiculo.Size = new Size(230, 70);
             grupocmbVehiculo.TabIndex = 0;
             grupocmbVehiculo.WrapContents = false;
-            // 
-            // etiquetacmbVehiculo
-            // 
             etiquetacmbVehiculo.AutoSize = true;
             etiquetacmbVehiculo.Location = new Point(3, 0);
             etiquetacmbVehiculo.Name = "etiquetacmbVehiculo";
             etiquetacmbVehiculo.Size = new Size(75, 23);
             etiquetacmbVehiculo.TabIndex = 0;
             etiquetacmbVehiculo.Text = "Vehículo";
-            // 
-            // cmbVehiculo
-            // 
             cmbVehiculo.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbVehiculo.Location = new Point(3, 26);
             cmbVehiculo.Name = "cmbVehiculo";
             cmbVehiculo.Size = new Size(210, 31);
             cmbVehiculo.TabIndex = 1;
-            // 
-            // grupocmbCliente
-            // 
             grupocmbCliente.Controls.Add(etiquetacmbCliente);
             grupocmbCliente.Controls.Add(cmbCliente);
             grupocmbCliente.FlowDirection = FlowDirection.TopDown;
@@ -117,26 +102,17 @@ namespace Proyecto_4_parcial.Presentacion
             grupocmbCliente.Size = new Size(230, 70);
             grupocmbCliente.TabIndex = 1;
             grupocmbCliente.WrapContents = false;
-            // 
-            // etiquetacmbCliente
-            // 
             etiquetacmbCliente.AutoSize = true;
             etiquetacmbCliente.Location = new Point(3, 0);
             etiquetacmbCliente.Name = "etiquetacmbCliente";
             etiquetacmbCliente.Size = new Size(63, 23);
             etiquetacmbCliente.TabIndex = 0;
             etiquetacmbCliente.Text = "Cliente";
-            // 
-            // cmbCliente
-            // 
             cmbCliente.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbCliente.Location = new Point(3, 26);
             cmbCliente.Name = "cmbCliente";
             cmbCliente.Size = new Size(210, 31);
             cmbCliente.TabIndex = 1;
-            // 
-            // btnAccion1
-            // 
             btnAccion1.AutoSize = true;
             btnAccion1.Location = new Point(492, 38);
             btnAccion1.Margin = new Padding(8, 26, 8, 0);
@@ -144,9 +120,6 @@ namespace Proyecto_4_parcial.Presentacion
             btnAccion1.Size = new Size(178, 35);
             btnAccion1.TabIndex = 2;
             btnAccion1.Text = "Historial del vehículo";
-            // 
-            // btnAccion2
-            // 
             btnAccion2.AutoSize = true;
             btnAccion2.Location = new Point(686, 38);
             btnAccion2.Margin = new Padding(8, 26, 8, 0);
@@ -154,9 +127,6 @@ namespace Proyecto_4_parcial.Presentacion
             btnAccion2.Size = new Size(167, 35);
             btnAccion2.TabIndex = 3;
             btnAccion2.Text = "Órdenes del cliente";
-            // 
-            // btnAccion3
-            // 
             btnAccion3.AutoSize = true;
             btnAccion3.Location = new Point(869, 38);
             btnAccion3.Margin = new Padding(8, 26, 8, 0);
@@ -164,9 +134,6 @@ namespace Proyecto_4_parcial.Presentacion
             btnAccion3.Size = new Size(175, 35);
             btnAccion3.TabIndex = 4;
             btnAccion3.Text = "Vehículos del cliente";
-            // 
-            // btnAccion4
-            // 
             btnAccion4.AutoSize = true;
             btnAccion4.Location = new Point(20, 114);
             btnAccion4.Margin = new Padding(8, 26, 8, 0);
@@ -174,9 +141,6 @@ namespace Proyecto_4_parcial.Presentacion
             btnAccion4.Size = new Size(140, 35);
             btnAccion4.TabIndex = 5;
             btnAccion4.Text = "Órdenes activas";
-            // 
-            // btnAccion5
-            // 
             btnAccion5.AutoSize = true;
             btnAccion5.Location = new Point(176, 114);
             btnAccion5.Margin = new Padding(8, 26, 8, 0);
@@ -184,9 +148,6 @@ namespace Proyecto_4_parcial.Presentacion
             btnAccion5.Size = new Size(158, 35);
             btnAccion5.TabIndex = 6;
             btnAccion5.Text = "Saldos pendientes";
-            // 
-            // btnAccion6
-            // 
             btnAccion6.AutoSize = true;
             btnAccion6.Location = new Point(350, 114);
             btnAccion6.Margin = new Padding(8, 26, 8, 0);
@@ -194,9 +155,6 @@ namespace Proyecto_4_parcial.Presentacion
             btnAccion6.Size = new Size(98, 35);
             btnAccion6.TabIndex = 7;
             btnAccion6.Text = "Stock bajo";
-            // 
-            // btnAccion7
-            // 
             btnAccion7.AutoSize = true;
             btnAccion7.Location = new Point(464, 114);
             btnAccion7.Margin = new Padding(8, 26, 8, 0);
@@ -204,9 +162,6 @@ namespace Proyecto_4_parcial.Presentacion
             btnAccion7.Size = new Size(169, 35);
             btnAccion7.TabIndex = 8;
             btnAccion7.Text = "Servicios frecuentes";
-            // 
-            // btnAccion8
-            // 
             btnAccion8.AutoSize = true;
             btnAccion8.Location = new Point(649, 114);
             btnAccion8.Margin = new Padding(8, 26, 8, 0);
@@ -214,9 +169,6 @@ namespace Proyecto_4_parcial.Presentacion
             btnAccion8.Size = new Size(174, 35);
             btnAccion8.TabIndex = 9;
             btnAccion8.Text = "Carga de mecánicos";
-            // 
-            // btnAccion9
-            // 
             btnAccion9.AutoSize = true;
             btnAccion9.Location = new Point(839, 114);
             btnAccion9.Margin = new Padding(8, 26, 8, 0);
@@ -224,9 +176,6 @@ namespace Proyecto_4_parcial.Presentacion
             btnAccion9.Size = new Size(193, 35);
             btnAccion9.TabIndex = 10;
             btnAccion9.Text = "Facturación por cliente";
-            // 
-            // btnAccion10
-            // 
             btnAccion10.AutoSize = true;
             btnAccion10.Location = new Point(20, 175);
             btnAccion10.Margin = new Padding(8, 26, 8, 0);
@@ -234,9 +183,6 @@ namespace Proyecto_4_parcial.Presentacion
             btnAccion10.Size = new Size(75, 35);
             btnAccion10.TabIndex = 11;
             btnAccion10.Text = "Cerrar";
-            // 
-            // dgvDatos
-            // 
             dgvDatos.AllowUserToAddRows = false;
             dgvDatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
             dgvDatos.ColumnHeadersHeight = 29;
@@ -249,13 +195,7 @@ namespace Proyecto_4_parcial.Presentacion
             dgvDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvDatos.Size = new Size(1100, 460);
             dgvDatos.TabIndex = 0;
-            // 
-            // errores
-            // 
             errores.ContainerControl = this;
-            // 
-            // FrmConsultas
-            // 
             AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1100, 700);

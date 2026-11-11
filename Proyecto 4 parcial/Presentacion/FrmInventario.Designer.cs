@@ -54,9 +54,6 @@ namespace Proyecto_4_parcial.Presentacion
             ((System.ComponentModel.ISupportInitialize)dgvDatos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errores).BeginInit();
             SuspendLayout();
-            // 
-            // panel
-            // 
             panel.AutoScroll = true;
             panel.Controls.Add(grupocmbRefaccion);
             panel.Controls.Add(gruponudCantidad);
@@ -72,9 +69,6 @@ namespace Proyecto_4_parcial.Presentacion
             panel.Padding = new Padding(12);
             panel.Size = new Size(1100, 190);
             panel.TabIndex = 1;
-            // 
-            // grupocmbRefaccion
-            // 
             grupocmbRefaccion.Controls.Add(etiquetacmbRefaccion);
             grupocmbRefaccion.Controls.Add(cmbRefaccion);
             grupocmbRefaccion.FlowDirection = FlowDirection.TopDown;
@@ -83,26 +77,17 @@ namespace Proyecto_4_parcial.Presentacion
             grupocmbRefaccion.Size = new Size(230, 70);
             grupocmbRefaccion.TabIndex = 0;
             grupocmbRefaccion.WrapContents = false;
-            // 
-            // etiquetacmbRefaccion
-            // 
             etiquetacmbRefaccion.AutoSize = true;
             etiquetacmbRefaccion.Location = new Point(3, 0);
             etiquetacmbRefaccion.Name = "etiquetacmbRefaccion";
             etiquetacmbRefaccion.Size = new Size(83, 23);
             etiquetacmbRefaccion.TabIndex = 0;
             etiquetacmbRefaccion.Text = "Refacción";
-            // 
-            // cmbRefaccion
-            // 
             cmbRefaccion.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbRefaccion.Location = new Point(3, 26);
             cmbRefaccion.Name = "cmbRefaccion";
             cmbRefaccion.Size = new Size(210, 31);
             cmbRefaccion.TabIndex = 1;
-            // 
-            // gruponudCantidad
-            // 
             gruponudCantidad.Controls.Add(etiquetanudCantidad);
             gruponudCantidad.Controls.Add(nudCantidad);
             gruponudCantidad.FlowDirection = FlowDirection.TopDown;
@@ -111,26 +96,17 @@ namespace Proyecto_4_parcial.Presentacion
             gruponudCantidad.Size = new Size(230, 70);
             gruponudCantidad.TabIndex = 1;
             gruponudCantidad.WrapContents = false;
-            // 
-            // etiquetanudCantidad
-            // 
             etiquetanudCantidad.AutoSize = true;
             etiquetanudCantidad.Location = new Point(3, 0);
             etiquetanudCantidad.Name = "etiquetanudCantidad";
             etiquetanudCantidad.Size = new Size(79, 23);
             etiquetanudCantidad.TabIndex = 0;
             etiquetanudCantidad.Text = "Cantidad";
-            // 
-            // nudCantidad
-            // 
             nudCantidad.Location = new Point(3, 26);
             nudCantidad.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
             nudCantidad.Name = "nudCantidad";
             nudCantidad.Size = new Size(210, 30);
             nudCantidad.TabIndex = 1;
-            // 
-            // grupotxtMotivo
-            // 
             grupotxtMotivo.Controls.Add(etiquetatxtMotivo);
             grupotxtMotivo.Controls.Add(txtMotivo);
             grupotxtMotivo.FlowDirection = FlowDirection.TopDown;
@@ -139,26 +115,17 @@ namespace Proyecto_4_parcial.Presentacion
             grupotxtMotivo.Size = new Size(230, 70);
             grupotxtMotivo.TabIndex = 2;
             grupotxtMotivo.WrapContents = false;
-            // 
-            // etiquetatxtMotivo
-            // 
             etiquetatxtMotivo.AutoSize = true;
             etiquetatxtMotivo.Location = new Point(3, 0);
             etiquetatxtMotivo.Name = "etiquetatxtMotivo";
             etiquetatxtMotivo.Size = new Size(187, 23);
             etiquetatxtMotivo.TabIndex = 0;
             etiquetatxtMotivo.Text = "Motivo del movimiento";
-            // 
-            // txtMotivo
-            // 
             txtMotivo.Location = new Point(3, 26);
             txtMotivo.MaxLength = 250;
             txtMotivo.Name = "txtMotivo";
             txtMotivo.Size = new Size(210, 30);
             txtMotivo.TabIndex = 1;
-            // 
-            // btnAccion1
-            // 
             btnAccion1.AutoSize = true;
             btnAccion1.Location = new Point(728, 38);
             btnAccion1.Margin = new Padding(8, 26, 8, 0);
@@ -166,9 +133,6 @@ namespace Proyecto_4_parcial.Presentacion
             btnAccion1.Size = new Size(79, 35);
             btnAccion1.TabIndex = 3;
             btnAccion1.Text = "Entrada";
-            // 
-            // btnAccion2
-            // 
             btnAccion2.AutoSize = true;
             btnAccion2.Location = new Point(823, 38);
             btnAccion2.Margin = new Padding(8, 26, 8, 0);
@@ -176,9 +140,6 @@ namespace Proyecto_4_parcial.Presentacion
             btnAccion2.Size = new Size(75, 35);
             btnAccion2.TabIndex = 4;
             btnAccion2.Text = "Salida";
-            // 
-            // btnAccion3
-            // 
             btnAccion3.AutoSize = true;
             btnAccion3.Location = new Point(914, 38);
             btnAccion3.Margin = new Padding(8, 26, 8, 0);
@@ -186,9 +147,6 @@ namespace Proyecto_4_parcial.Presentacion
             btnAccion3.Size = new Size(148, 35);
             btnAccion3.TabIndex = 5;
             btnAccion3.Text = "Ver movimientos";
-            // 
-            // btnAccion4
-            // 
             btnAccion4.AutoSize = true;
             btnAccion4.Location = new Point(20, 114);
             btnAccion4.Margin = new Padding(8, 26, 8, 0);
@@ -196,9 +154,6 @@ namespace Proyecto_4_parcial.Presentacion
             btnAccion4.Size = new Size(126, 35);
             btnAccion4.TabIndex = 6;
             btnAccion4.Text = "Ver inventario";
-            // 
-            // btnAccion5
-            // 
             btnAccion5.AutoSize = true;
             btnAccion5.Location = new Point(162, 114);
             btnAccion5.Margin = new Padding(8, 26, 8, 0);
@@ -206,9 +161,6 @@ namespace Proyecto_4_parcial.Presentacion
             btnAccion5.Size = new Size(75, 35);
             btnAccion5.TabIndex = 7;
             btnAccion5.Text = "Cerrar";
-            // 
-            // dgvDatos
-            // 
             dgvDatos.AllowUserToAddRows = false;
             dgvDatos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
             dgvDatos.ColumnHeadersHeight = 29;
@@ -221,13 +173,7 @@ namespace Proyecto_4_parcial.Presentacion
             dgvDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvDatos.Size = new Size(1100, 510);
             dgvDatos.TabIndex = 0;
-            // 
-            // errores
-            // 
             errores.ContainerControl = this;
-            // 
-            // FrmInventario
-            // 
             AutoScaleDimensions = new SizeF(9F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1100, 700);

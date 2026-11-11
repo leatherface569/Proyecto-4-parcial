@@ -1,4 +1,4 @@
-﻿namespace Proyecto_4_parcial.Entidades
+﻿namespace Proyecto_4_parcial.Modelos
 {
     public enum EstadoOrden
     {

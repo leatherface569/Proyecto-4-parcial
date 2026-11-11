@@ -1,4 +1,4 @@
-﻿using Proyecto_4_parcial.Entidades;
+﻿using Proyecto_4_parcial.Modelos;
 using Proyecto_4_parcial.Negocio;
 namespace Proyecto_4_parcial.Presentacion
 {
@@ -63,7 +63,6 @@ namespace Proyecto_4_parcial.Presentacion
         }
         private void MostrarOrdenes(IEnumerable<OrdenServicio> ordenes)
         {
-            // El detalle completo se consulta en Órdenes mediante su número.
             dgvDatos.DataSource = ordenes.Select(o => new { o.Id, o.Fecha, o.VehiculoId, o.MecanicoId, o.Diagnostico, o.Estado, Servicios = string.Join(", ", o.Servicios.Select(d => negocio.Datos.Servicios.Todos().First(s => s.Id == d.ServicioId).Nombre)), Refacciones = string.Join(", ", o.Refacciones.Select(d => negocio.Datos.Refacciones.Todos().First(r => r.Id == d.RefaccionId).Nombre + " x" + d.Cantidad)), o.Total, o.Pagado, o.Saldo }).ToList();
         }
     }

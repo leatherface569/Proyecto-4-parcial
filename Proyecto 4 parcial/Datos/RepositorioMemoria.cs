@@ -1,7 +1,6 @@
-﻿using Proyecto_4_parcial.Entidades;
+﻿using Proyecto_4_parcial.Modelos;
 namespace Proyecto_4_parcial.Datos
 {
-    // Datos temporales: se pierden al cerrar la aplicación.
     public class RepositorioMemoria<T> : IRepositorio<T> where T : Entidad
     {
         private List<T> datos = new List<T>();

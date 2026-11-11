@@ -1,7 +1,18 @@
-﻿namespace Proyecto_4_parcial.Entidades
+﻿namespace Proyecto_4_parcial.Modelos
 {
     public class Refaccion : Entidad
     {
+        public Refaccion() { }
+
+        public Refaccion(int id, int categoriaId, string nombre, decimal precio, int stock, int stockMinimo) : base(id)
+        {
+            CategoriaId = categoriaId;
+            Nombre = nombre;
+            Precio = precio;
+            Stock = stock;
+            StockMinimo = stockMinimo;
+        }
+
         public int CategoriaId { get; set; }
         public string Nombre { get; set; } = "";
         public decimal Precio { get; set; }

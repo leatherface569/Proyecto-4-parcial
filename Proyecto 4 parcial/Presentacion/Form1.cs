@@ -38,7 +38,6 @@ public partial class Form1 : Form
     }
     private string perfil = "";
 
-    // Solo puede existir un módulo MDI abierto. La fábrica también queda dentro del try.
     private void Abrir(Func<Form> crearFormulario)
     {
         Form? formulario = null;
@@ -74,7 +73,6 @@ public partial class Form1 : Form
 
     private void Formulario_FormClosed(object? sender, FormClosedEventArgs e)
     {
-        // Al cerrarse el módulo se habilita de nuevo la navegación.
         if (sender is Form formulario) formulario.FormClosed -= Formulario_FormClosed;
         if (!IsDisposed && !Disposing)
             menuPrincipal.Enabled = !MdiChildren.Any(f => !ReferenceEquals(f, sender) && !f.IsDisposed);

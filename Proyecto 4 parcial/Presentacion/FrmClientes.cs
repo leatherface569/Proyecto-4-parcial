@@ -1,5 +1,5 @@
 ﻿using Proyecto_4_parcial.Datos;
-using Proyecto_4_parcial.Entidades;
+using Proyecto_4_parcial.Modelos;
 using Proyecto_4_parcial.Negocio;
 namespace Proyecto_4_parcial.Presentacion
 {
@@ -54,23 +54,8 @@ namespace Proyecto_4_parcial.Presentacion
         }
         private void Guardar()
         {
-            Cliente entidad = crear();
-            entidad.Id = idSeleccionado;
-            foreach (var campo in controles)
-            {
-                var propiedad = entidad.GetType().GetProperty(campo.Key)!;
-                Control control = campo.Value;
-                object? valor = null;
-                if (control is TextBox texto) valor = texto.Text.Trim();
-                if (control is CheckBox opcion) valor = opcion.Checked;
-                if (control is ComboBox combo) valor = (combo.SelectedItem as Entidad)?.Id ?? 0;
-                if (control is NumericUpDown numero)
-                {
-                    if (propiedad.PropertyType == typeof(int)) valor = (int)numero.Value;
-                    else valor = numero.Value;
-                }
-                propiedad.SetValue(entidad, valor);
-            }
+            Cliente entidad = new Cliente(idSeleccionado, txtNombre.Text.Trim(),
+                txtTelefono.Text.Trim(), txtCorreo.Text.Trim());
             negocio.Guardar(entidad, datos);
             Limpiar();
             Mostrar();
@@ -110,7 +95,6 @@ namespace Proyecto_4_parcial.Presentacion
 
         private void Mostrar()
         {
-            // El selector de vehículos abre un catálogo para cada clase derivada.
             dgvDatos.DataSource = datos.Todos()
 
                 .Where(e => e.GetType().GetProperties().Any(p =>
