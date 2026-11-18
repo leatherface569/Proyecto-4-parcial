@@ -1,182 +1,245 @@
 ﻿using Proyecto_4_parcial.Datos;
 using Proyecto_4_parcial.Modelos;
-using System.Text.RegularExpressions;
 
 namespace Proyecto_4_parcial.Negocio
 {
     public class TallerServicio
     {
-        public Almacen Datos { get; } = new Almacen();
+        private TallerDatos datos = new TallerDatos();
 
-        public void Guardar<T>(T entidad, IRepositorio<T> repositorio) where T : Entidad
+        public List<Cliente> ObtenerClientes()
         {
-            if (entidad is Cliente cliente)
+            return datos.MostrarClientes();
+        }
+
+        public List<Vehiculo> ObtenerVehiculos()
+        {
+            return datos.MostrarVehiculos();
+        }
+
+        // Cada validación lanza una excepción si la información es incorrecta.
+        public void GuardarCliente(Cliente cliente)
+        {
+            if (cliente == null)
             {
-                Obligatorio(cliente.Nombre, "Nombre");
-                if (!Regex.IsMatch(cliente.Telefono, @"^\d{10}$"))
-                    throw new ValidacionException("Telefono", "Escribe un teléfono de 10 dígitos.");
-                if (cliente.Correo != "" && !System.Net.Mail.MailAddress.TryCreate(cliente.Correo, out _))
-                    throw new ValidacionException("Correo", "El correo no es válido.");
-                if (Datos.Clientes.Todos().Any(c => c.Id != cliente.Id && c.Telefono == cliente.Telefono))
-                    throw new ValidacionException("Telefono", "El teléfono ya está registrado.");
+                throw new ArgumentException("No se recibieron los datos del cliente.");
             }
-            if (entidad is Mecanico mecanico)
+            ValidarNombre(cliente.Nombre);
+            ValidarTelefono(cliente.Telefono);
+            ValidarCorreo(cliente.Correo);
+            ValidarTelefonoDuplicado(cliente);
+            datos.GuardarCliente(cliente);
+        }
+
+        public void GuardarVehiculo(Vehiculo vehiculo)
+        {
+            if (vehiculo == null)
             {
-                Obligatorio(mecanico.Nombre, "Nombre");
-                Obligatorio(mecanico.Especialidad, "Especialidad");
+                throw new ArgumentException("No se recibieron los datos del vehículo.");
             }
-            if (entidad is Categoria categoria)
+            ValidarPropietario(vehiculo.ClienteId);
+            ValidarTipo(vehiculo.Tipo);
+            ValidarNumeroSerie(vehiculo.NumeroSerie);
+            ValidarPlaca(vehiculo.Placa);
+            ValidarMarca(vehiculo.Marca);
+            ValidarModelo(vehiculo.Modelo);
+            ValidarAnio(vehiculo.Anio);
+            ValidarKilometraje(vehiculo.Kilometraje);
+            ValidarPlacaDuplicada(vehiculo);
+            ValidarSerieDuplicada(vehiculo);
+            datos.GuardarVehiculo(vehiculo);
+        }
+
+        private void ValidarNombre(string nombre)
+        {
+            if (string.IsNullOrWhiteSpace(nombre))
             {
-                Obligatorio(categoria.Nombre, "Nombre");
-                if (Datos.Categorias.Todos().Any(c => c.Id != categoria.Id && c.Nombre.Equals(categoria.Nombre, StringComparison.OrdinalIgnoreCase)))
-                    throw new ValidacionException("Nombre", "La categoría ya existe.");
+                throw new ArgumentException("Escribe el nombre del cliente.");
             }
-            if (entidad is Vehiculo vehiculo)
+        }
+
+        private void ValidarTelefono(string telefono)
+        {
+            if (string.IsNullOrWhiteSpace(telefono) || telefono.Length != 10)
             {
-                if (!Datos.Clientes.Todos().Any(c => c.Id == vehiculo.ClienteId))
-                    throw new ValidacionException("ClienteId", "Selecciona un cliente.");
-                Obligatorio(vehiculo.Marca, "Marca");
-                Obligatorio(vehiculo.Modelo, "Modelo");
-                if (!Regex.IsMatch(vehiculo.Placa, @"^[A-Za-z0-9-]{5,10}$"))
-                    throw new ValidacionException("Placa", "Escribe una placa de 5 a 10 letras, números o guiones.");
-                if (!Regex.IsMatch(vehiculo.NumeroSerie, @"^[A-HJ-NPR-Z0-9]{17}$", RegexOptions.IgnoreCase))
-                    throw new ValidacionException("NumeroSerie", "La serie debe contener 17 caracteres VIN, sin I, O ni Q.");
-                if (vehiculo.Anio < 1900 || vehiculo.Anio > DateTime.Today.Year + 1)
-                    throw new ValidacionException("Anio", "El año está fuera de rango.");
-                if (vehiculo.Kilometraje < 0) throw new ValidacionException("Kilometraje", "El kilometraje no puede ser negativo.");
-                if (Datos.Vehiculos.Todos().Any(v => v.Id != vehiculo.Id && (v.Placa.Equals(vehiculo.Placa, StringComparison.OrdinalIgnoreCase) || v.NumeroSerie.Equals(vehiculo.NumeroSerie, StringComparison.OrdinalIgnoreCase))))
-                    throw new ValidacionException("Placa", "La placa o la serie ya está registrada.");
-                if (Datos.Ordenes.Todos().Any(o => o.VehiculoId == vehiculo.Id && o.ClienteId != vehiculo.ClienteId))
-                    throw new ValidacionException("ClienteId", "No se puede cambiar el propietario de un vehículo con órdenes.");
-                vehiculo.ValidarInformacion();
+                throw new ArgumentException("El teléfono debe tener 10 dígitos.");
             }
-            if (entidad is Servicio servicio)
+            foreach (char numero in telefono)
             {
-                Obligatorio(servicio.Nombre, "Nombre");
-                Obligatorio(servicio.Descripcion, "Descripcion");
-                if (servicio.Precio <= 0) throw new ValidacionException("Precio", "El precio debe ser mayor a cero.");
-                if (servicio.DuracionMinutos <= 0) throw new ValidacionException("DuracionMinutos", "La duración debe ser mayor a cero.");
+                if (!char.IsDigit(numero))
+                {
+                    throw new ArgumentException("El teléfono solo puede contener números.");
+                }
             }
-            if (entidad is Refaccion refaccion)
+        }
+
+        private void ValidarCorreo(string correo)
+        {
+            if (correo != "" && (!correo.Contains("@") || !correo.Contains(".")))
             {
-                Obligatorio(refaccion.Nombre, "Nombre");
-                if (!Datos.Categorias.Todos().Any(c => c.Id == refaccion.CategoriaId))
-                    throw new ValidacionException("CategoriaId", "Selecciona una categoría.");
-                if (refaccion.Precio <= 0) throw new ValidacionException("Precio", "El precio debe ser mayor a cero.");
-                if (refaccion.Stock < 0 || refaccion.StockMinimo < 0)
-                    throw new ValidacionException("Stock", "Las existencias no pueden ser negativas.");
-                Refaccion? anterior = Datos.Refacciones.Todos().FirstOrDefault(r => r.Id == refaccion.Id);
-                if (anterior != null && anterior.Stock != refaccion.Stock)
-                    throw new ValidacionException("Stock", "Usa el módulo Inventario para registrar entradas o salidas.");
+                throw new ArgumentException("El correo no es válido.");
             }
-            repositorio.Guardar(entidad);
         }
 
-        private void Obligatorio(string texto, string campo)
+        private void ValidarTelefonoDuplicado(Cliente cliente)
         {
-            if (string.IsNullOrWhiteSpace(texto)) throw new ValidacionException(campo, "Campo obligatorio.");
-        }
-
-        public void Eliminar<T>(T entidad, IRepositorio<T> repositorio) where T : Entidad
-        {
-            bool relacionado = false;
-            if (entidad is Cliente) relacionado = Datos.Vehiculos.Todos().Any(v => v.ClienteId == entidad.Id);
-            if (entidad is Vehiculo) relacionado = Datos.Ordenes.Todos().Any(o => o.VehiculoId == entidad.Id);
-            if (entidad is Mecanico) relacionado = Datos.Ordenes.Todos().Any(o => o.MecanicoId == entidad.Id);
-            if (entidad is Categoria) relacionado = Datos.Refacciones.Todos().Any(r => r.CategoriaId == entidad.Id);
-            if (entidad is Servicio) relacionado = Datos.Ordenes.Todos().Any(o => o.Servicios.Any(s => s.ServicioId == entidad.Id));
-            if (entidad is Refaccion) relacionado = Datos.Ordenes.Todos().Any(o => o.Refacciones.Any(r => r.RefaccionId == entidad.Id)) || Datos.Movimientos.Todos().Any(m => m.RefaccionId == entidad.Id);
-            if (relacionado) throw new InvalidOperationException("El registro tiene relaciones; no se puede dar de baja.");
-            repositorio.Eliminar(entidad.Id);
-        }
-
-        public OrdenServicio AbrirOrden(int vehiculoId, int mecanicoId, int kilometraje, string falla)
-        {
-            Vehiculo vehiculo = Datos.Vehiculos.Todos().FirstOrDefault(v => v.Id == vehiculoId)
-                ?? throw new ValidacionException("VehiculoId", "Selecciona un vehículo.");
-            Mecanico mecanico = Datos.Mecanicos.Todos().FirstOrDefault(m => m.Id == mecanicoId)
-                ?? throw new ValidacionException("MecanicoId", "Selecciona un mecánico.");
-            if (!mecanico.Disponible) throw new ValidacionException("MecanicoId", "El mecánico no está disponible.");
-            if (Datos.Ordenes.Todos().Any(o => o.VehiculoId == vehiculoId && o.Estado != EstadoOrden.Entregada && o.Estado != EstadoOrden.Cancelada))
-                throw new ValidacionException("VehiculoId", "El vehículo ya tiene una orden activa.");
-            Obligatorio(falla, "Observaciones");
-            if (kilometraje < vehiculo.Kilometraje) throw new ValidacionException("Kilometraje", "El kilometraje no puede ser menor al registrado.");
-            OrdenServicio orden = new OrdenServicio { ClienteId = vehiculo.ClienteId, VehiculoId = vehiculoId, MecanicoId = mecanicoId, Kilometraje = kilometraje, Observaciones = falla.Trim() };
-            orden.RegistrarEstado(EstadoOrden.Abierta);
-            Datos.Ordenes.Guardar(orden);
-            vehiculo.Kilometraje = kilometraje;
-            return orden;
-        }
-
-        public void AgregarServicio(OrdenServicio orden, int servicioId)
-        {
-            ValidarEdicion(orden);
-            Servicio servicio = Datos.Servicios.Todos().First(s => s.Id == servicioId);
-            if (orden.Servicios.Any(s => s.ServicioId == servicioId)) throw new InvalidOperationException("El servicio ya está en la orden.");
-            orden.AgregarServicio(new DetalleServicio(servicio.Id, servicio.Precio));
-        }
-
-        public void AgregarRefaccion(OrdenServicio orden, int refaccionId, int cantidad)
-        {
-            ValidarEdicion(orden);
-            if (cantidad <= 0) throw new ValidacionException("Cantidad", "La cantidad debe ser mayor a cero.");
-            Refaccion refaccion = Datos.Refacciones.Todos().First(r => r.Id == refaccionId);
-            if (refaccion.Stock < cantidad) throw new StockInsuficienteException();
-            orden.AgregarRefaccion(new DetalleRefaccion(refaccionId, cantidad, refaccion.Precio));
-            MoverInventario(refaccionId, -cantidad, "Salida por orden " + orden.Id);
-        }
-
-        public void MoverInventario(int refaccionId, int cantidad, string motivo)
-        {
-            if (cantidad == 0) throw new ValidacionException("Cantidad", "La cantidad no puede ser cero.");
-            Obligatorio(motivo, "Motivo");
-            Refaccion refaccion = Datos.Refacciones.Todos().First(r => r.Id == refaccionId);
-            if ((long)refaccion.Stock + cantidad < 0) throw new StockInsuficienteException();
-            int nuevoStock = checked(refaccion.Stock + cantidad);
-            Datos.Movimientos.Guardar(new MovimientoInventario { RefaccionId = refaccionId, Cantidad = cantidad, Motivo = motivo.Trim() });
-            refaccion.Stock = nuevoStock;
-        }
-
-        public void CambiarEstado(OrdenServicio orden, EstadoOrden estado, string diagnostico)
-        {
-            bool permitido = (orden.Estado == EstadoOrden.Abierta && estado == EstadoOrden.Diagnosticada)
-                || (orden.Estado == EstadoOrden.Diagnosticada && estado == EstadoOrden.Autorizada)
-                || (orden.Estado == EstadoOrden.Autorizada && estado == EstadoOrden.EnProceso)
-                || (orden.Estado == EstadoOrden.EnProceso && estado == EstadoOrden.Terminada)
-                || (orden.Estado == EstadoOrden.Terminada && estado == EstadoOrden.Entregada);
-            if (!permitido) throw new EstadoOrdenException();
-            if (estado == EstadoOrden.Diagnosticada) Obligatorio(diagnostico, "Diagnostico");
-            if (estado == EstadoOrden.Terminada && orden.Servicios.Count == 0) throw new InvalidOperationException("Agrega al menos un servicio antes de terminar.");
-            if (estado == EstadoOrden.Entregada && orden.Saldo > 0) throw new InvalidOperationException("Liquida el saldo antes de entregar.");
-            orden.Diagnostico = diagnostico.Trim();
-            orden.RegistrarEstado(estado);
-        }
-
-        public void CancelarOrden(OrdenServicio orden)
-        {
-            if (orden.Estado == EstadoOrden.Cancelada || orden.Estado == EstadoOrden.Entregada || orden.Estado == EstadoOrden.Terminada)
-                throw new EstadoOrdenException();
-            if (orden.Pagado > 0) throw new InvalidOperationException("No se puede cancelar una orden con pagos registrados.");
-            foreach (var grupo in orden.Refacciones.GroupBy(r => r.RefaccionId))
+            foreach (Cliente registrado in datos.MostrarClientes())
             {
-                Refaccion refaccion = Datos.Refacciones.Todos().First(r => r.Id == grupo.Key);
-                checked { _ = refaccion.Stock + grupo.Sum(r => r.Cantidad); }
+                if (registrado.Id != cliente.Id && registrado.Telefono == cliente.Telefono)
+                {
+                    throw new ArgumentException("El teléfono ya está registrado.");
+                }
             }
-            foreach (DetalleRefaccion detalle in orden.Refacciones)
-                MoverInventario(detalle.RefaccionId, detalle.Cantidad, "Devolución por cancelación de orden " + orden.Id);
-            orden.RegistrarEstado(EstadoOrden.Cancelada);
         }
 
-        public void RegistrarPago(OrdenServicio orden, decimal importe)
+        private void ValidarPropietario(int clienteId)
         {
-            if (orden.Estado == EstadoOrden.Cancelada || orden.Estado == EstadoOrden.Entregada) throw new EstadoOrdenException();
-            if (importe <= 0 || importe > orden.Saldo) throw new ValidacionException("Importe", "El importe debe ser mayor a cero y no superar el saldo.");
-            orden.AgregarPago(importe);
+            foreach (Cliente cliente in datos.MostrarClientes())
+            {
+                if (cliente.Id == clienteId)
+                {
+                    return;
+                }
+            }
+            throw new ArgumentException("Selecciona un propietario registrado.");
         }
 
-        private void ValidarEdicion(OrdenServicio orden)
+        private void ValidarTipo(string tipo)
         {
-            if (orden.Estado != EstadoOrden.Autorizada && orden.Estado != EstadoOrden.EnProceso) throw new EstadoOrdenException();
+            if (tipo != "Automóvil" && tipo != "Motocicleta" && tipo != "Camioneta")
+            {
+                throw new ArgumentException("Selecciona el tipo de vehículo.");
+            }
         }
+
+        private void ValidarNumeroSerie(string serie)
+        {
+            if (string.IsNullOrWhiteSpace(serie) || serie.Length != 17)
+            {
+                throw new ArgumentException("La serie debe tener 17 caracteres VIN.");
+            }
+            string permitidos = "abcdefghjklmnprstuvwxyz0123456789";
+            foreach (char caracter in serie.ToLower())
+            {
+                if (!permitidos.Contains(caracter.ToString()))
+                {
+                    throw new ArgumentException("La serie solo admite letras y números, sin I, O ni Q.");
+                }
+            }
+        }
+
+        private void ValidarPlaca(string placa)
+        {
+            if (string.IsNullOrWhiteSpace(placa) || placa.Length < 5 || placa.Length > 10)
+            {
+                throw new ArgumentException("La placa debe tener entre 5 y 10 caracteres.");
+            }
+            string permitidos = "abcdefghijklmnopqrstuvwxyz0123456789-";
+            foreach (char caracter in placa.ToLower())
+            {
+                if (!permitidos.Contains(caracter.ToString()))
+                {
+                    throw new ArgumentException("La placa solo admite letras, números o guiones.");
+                }
+            }
+        }
+
+        private void ValidarMarca(string marca)
+        {
+            if (string.IsNullOrWhiteSpace(marca))
+            {
+                throw new ArgumentException("Escribe la marca.");
+            }
+        }
+
+        private void ValidarModelo(string modelo)
+        {
+            if (string.IsNullOrWhiteSpace(modelo))
+            {
+                throw new ArgumentException("Escribe el modelo.");
+            }
+        }
+
+        private void ValidarAnio(int anio)
+        {
+            if (anio < 1900 || anio > DateTime.Today.Year + 1)
+            {
+                throw new ArgumentException("El año está fuera de rango.");
+            }
+        }
+
+        private void ValidarKilometraje(int kilometraje)
+        {
+            if (kilometraje < 0)
+            {
+                throw new ArgumentException("El kilometraje no puede ser negativo.");
+            }
+        }
+
+        private void ValidarPlacaDuplicada(Vehiculo vehiculo)
+        {
+            foreach (Vehiculo registrado in datos.MostrarVehiculos())
+            {
+                if (registrado.Id != vehiculo.Id && registrado.Placa.ToLower() == vehiculo.Placa.ToLower())
+                {
+                    throw new ArgumentException("La placa ya está registrada.");
+                }
+            }
+        }
+
+        private void ValidarSerieDuplicada(Vehiculo vehiculo)
+        {
+            foreach (Vehiculo registrado in datos.MostrarVehiculos())
+            {
+                if (registrado.Id != vehiculo.Id && registrado.NumeroSerie.ToLower() == vehiculo.NumeroSerie.ToLower())
+                {
+                    throw new ArgumentException("La serie ya está registrada.");
+                }
+            }
+        }
+
+        public void EliminarCliente(int id)
+        {
+            ValidarSeleccion(id, "cliente");
+            ValidarClienteSinVehiculos(id);
+            datos.EliminarCliente(id);
+        }
+
+        private void ValidarClienteSinVehiculos(int clienteId)
+        {
+            foreach (Vehiculo vehiculo in datos.MostrarVehiculos())
+            {
+                if (vehiculo.ClienteId == clienteId)
+                {
+                    throw new ArgumentException("Primero da de baja los vehículos de este cliente.");
+                }
+            }
+        }
+
+        public void EliminarVehiculo(int id)
+        {
+            ValidarSeleccion(id, "vehículo");
+            datos.EliminarVehiculo(id);
+        }
+        private void ValidarSeleccion(int id, string registro)
+        {
+            if (id <= 0)
+            {
+                throw new ArgumentException("Selecciona un " + registro + " en la tabla.");
+            }
+        }
+
+        public Cliente ObtenerCliente(int id)
+        {
+            ValidarSeleccion(id, "cliente");
+            return datos.ObtenerCliente(id);
+        }
+
+        public Vehiculo ObtenerVehiculo(int id)
+        {
+            ValidarSeleccion(id, "vehículo");
+            return datos.ObtenerVehiculo(id);
+        }
+
     }
 }

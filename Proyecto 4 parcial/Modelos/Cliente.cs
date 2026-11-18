@@ -1,19 +1,21 @@
 ﻿namespace Proyecto_4_parcial.Modelos
 {
-    public class Cliente : Entidad
+    public class Cliente
     {
-        public Cliente() { }
+        public int Id { get; set; }
+        public string Nombre { get; set; } = "";
+        public string Telefono { get; set; } = "";
+        public string Correo { get; set; } = "";
+        public bool Activo { get; set; } = true;
 
-        public Cliente(int id, string nombre, string telefono, string correo) : base(id)
+        public Cliente() { }
+        public Cliente(int id, string nombre, string telefono, string correo)
         {
+            Id = id;
             Nombre = nombre;
             Telefono = telefono;
             Correo = correo;
         }
-
-        public string Nombre { get; set; } = "";
-        public string Telefono { get; set; } = "";
-        public string Correo { get; set; } = "";
         public override string ToString() { return Nombre; }
     }
 }

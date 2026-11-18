@@ -1,111 +1,118 @@
-﻿using Proyecto_4_parcial.Datos;
+﻿using System;
+using System.Windows.Forms;
 using Proyecto_4_parcial.Modelos;
 using Proyecto_4_parcial.Negocio;
+
 namespace Proyecto_4_parcial.Presentacion
 {
     public partial class FrmClientes : Form
     {
-        private TallerServicio negocio;
-        private IRepositorio<Cliente> datos;
-        private Func<Cliente> crear;
-        private Dictionary<string, Control> controles = new Dictionary<string, Control>();
-        private int idSeleccionado;
-        public FrmClientes() : this(new TallerServicio()) { }
-        public FrmClientes(TallerServicio servicio)
+        private TallerServicio negocio = new TallerServicio();
+        private int idSeleccionado = 0;
+
+        public FrmClientes()
         {
             InitializeComponent();
+            dgvDatos.Columns.Add("Id", "Id");
+            dgvDatos.Columns.Add("Nombre", "Nombre");
+            dgvDatos.Columns.Add("Telefono", "Teléfono");
+            dgvDatos.Columns.Add("Correo", "Correo");
+        }
+        public FrmClientes(TallerServicio servicio) : this()
+        {
             negocio = servicio;
-            datos = servicio.Datos.Clientes;
-            crear = () => new Cliente();
-            controles.Add("Nombre", txtNombre);
-            campos.Add("Nombre", txtNombre);
-            controles.Add("Telefono", txtTelefono);
-            campos.Add("Telefono", txtTelefono);
-            controles.Add("Correo", txtCorreo);
-            campos.Add("Correo", txtCorreo);
-            txtBuscar.TextChanged += (_, _) => Buscar();
-            btnNuevo.Click += (_, _) => Seguro(Limpiar);
-            btnGuardar.Click += (_, _) => Seguro(Guardar);
-            btnBaja.Click += (_, _) => Seguro(Eliminar);
-            btnCerrar.Click += (_, _) => Close();
-            dgvDatos.CellClick += (_, e) => Seguro(() => { if (e.RowIndex >= 0 && dgvDatos.Rows[e.RowIndex].DataBoundItem is Cliente entidad) Cargar(entidad); });
-            Limpiar();
-            Mostrar();
         }
 
-        private Dictionary<string, Control> campos = new Dictionary<string, Control>();
-        private void Seguro(Action accion)
+        // Guarda el cliente usando los valores del UserControl.
+        private void btnGuardar_Click(object sender, EventArgs e)
         {
-            errores.Clear();
-            try { accion(); }
-            catch (ValidacionException ex)
+            if (!ucCliente1.ValidarCampos()) return;
+            try
             {
-                if (campos.TryGetValue(ex.Campo, out Control? control))
-                {
-                    errores.SetError(control, ex.Message);
-                    control.Focus();
-                }
-                MessageBox.Show(this, ex.Message, "Revisa la información", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Cliente cliente = new Cliente(idSeleccionado, ucCliente1.Nombre.Trim(),
+                    ucCliente1.Telefono.Trim(), ucCliente1.Correo.Trim());
+                negocio.GuardarCliente(cliente);
+                MessageBox.Show("Cliente guardado correctamente.");
+                idSeleccionado = 0;
+                ucCliente1.Limpiar();
+                dgvDatos.Rows.Clear();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(this, ex.Message, "Operación no realizada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(ex.Message);
             }
         }
-        private void Guardar()
-        {
-            Cliente entidad = new Cliente(idSeleccionado, txtNombre.Text.Trim(),
-                txtTelefono.Text.Trim(), txtCorreo.Text.Trim());
-            negocio.Guardar(entidad, datos);
-            Limpiar();
-            Mostrar();
-        }
 
-        private void Cargar(Cliente entidad)
+        // Mismo patrón de btnMostrar_Click del repositorio Ev-primer-parcial.
+        private void btnMostrar_Click(object sender, EventArgs e)
         {
-            idSeleccionado = entidad.Id;
-            foreach (var campo in controles)
+            dgvDatos.Rows.Clear();
+            foreach (Cliente cliente in negocio.ObtenerClientes())
             {
-                object? valor = entidad.GetType().GetProperty(campo.Key)!.GetValue(entidad);
-                if (campo.Value is TextBox texto) texto.Text = valor?.ToString();
-                if (campo.Value is CheckBox opcion) opcion.Checked = (bool)valor!;
-                if (campo.Value is NumericUpDown numero) numero.Value = Convert.ToDecimal(valor);
-                if (campo.Value is ComboBox combo)
-                    combo.SelectedItem = combo.Items.Cast<Entidad>().FirstOrDefault(e => e.Id == Convert.ToInt32(valor));
+                dgvDatos.Rows.Add(cliente.Id, cliente.Nombre, cliente.Telefono, cliente.Correo);
             }
-            if (controles.TryGetValue("Stock", out Control? stock)) stock.Enabled = false;
         }
 
-        private void Eliminar()
+        private void btnBuscar_Click(object sender, EventArgs e)
         {
-            Cliente entidad = datos.Todos().FirstOrDefault(e => e.Id == idSeleccionado)
-                ?? throw new InvalidOperationException("Selecciona un registro en la tabla.");
-            if (MessageBox.Show(this, "¿Dar de baja el registro seleccionado?", Text, MessageBoxButtons.YesNo) != DialogResult.Yes) return;
-            negocio.Eliminar(entidad, datos);
-            Limpiar();
-            Mostrar();
+            dgvDatos.Rows.Clear();
+            foreach (Cliente cliente in negocio.ObtenerClientes())
+            {
+                string texto = cliente.Nombre + " " + cliente.Telefono + " " + cliente.Correo;
+                if (texto.ToLower().Contains(txtBuscar.Text.ToLower()))
+                {
+                    dgvDatos.Rows.Add(cliente.Id, cliente.Nombre, cliente.Telefono, cliente.Correo);
+                }
+            }
         }
 
-        private void Limpiar()
+        // Selecciona una fila para modificarla o darla de baja.
+        private void dgvDatos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            Cargar(crear());
+            if (e.RowIndex < 0) return;
+            try
+            {
+                idSeleccionado = Convert.ToInt32(dgvDatos.Rows[e.RowIndex].Cells[0].Value);
+                Cliente cliente = negocio.ObtenerCliente(idSeleccionado);
+                ucCliente1.Nombre = cliente.Nombre;
+                ucCliente1.Telefono = cliente.Telefono;
+                ucCliente1.Correo = cliente.Correo;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnDarDeBaja_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                negocio.ObtenerCliente(idSeleccionado);
+                DialogResult respuesta = MessageBox.Show("¿Dar de baja el cliente?", "Confirmar", MessageBoxButtons.YesNo);
+                if (respuesta == DialogResult.Yes)
+                {
+                    negocio.EliminarCliente(idSeleccionado);
+                    idSeleccionado = 0;
+                    ucCliente1.Limpiar();
+                    dgvDatos.Rows.Clear();
+                    MessageBox.Show("Cliente dado de baja correctamente.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
             idSeleccionado = 0;
-            if (controles.TryGetValue("Stock", out Control? stock)) stock.Enabled = true;
+            ucCliente1.Limpiar();
         }
-
-        private void Mostrar()
+        private void btnCerrar_Click(object sender, EventArgs e)
         {
-            dgvDatos.DataSource = datos.Todos()
-
-                .Where(e => e.GetType().GetProperties().Any(p =>
-                    (p.GetValue(e)?.ToString() ?? "").Contains(txtBuscar.Text, StringComparison.OrdinalIgnoreCase)))
-                .ToList();
-            if (dgvDatos.Columns.Contains("Activo")) dgvDatos.Columns["Activo"]!.Visible = false;
-        }
-
-        private void Buscar()
-        {
-            Mostrar();
+            Close();
         }
     }
 }
