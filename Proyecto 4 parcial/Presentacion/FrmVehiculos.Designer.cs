@@ -44,7 +44,7 @@ namespace Proyecto_4_parcial.Presentacion
             panelBotones.Height = 70;
             panelBotones.Padding = new Padding(15);
             panelBotones.AutoScroll = true;
-            lblBuscar.Text = "Buscar:";
+            lblBuscar.Text = "Buscar por ID:";
             lblBuscar.AutoSize = true;
             lblBuscar.Margin = new Padding(0, 8, 5, 0);
             txtBuscar.Name = "txtBuscar";

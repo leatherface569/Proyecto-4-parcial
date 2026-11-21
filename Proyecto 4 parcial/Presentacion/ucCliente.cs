@@ -54,7 +54,12 @@ namespace Proyecto_4_parcial.Presentacion
                     }
                 }
             }
-            if (txtCorreo.Text != "" && (!txtCorreo.Text.Contains("@") || !txtCorreo.Text.Contains(".")))
+            if (string.IsNullOrWhiteSpace(txtCorreo.Text))
+            {
+                errorProvider1.SetError(txtCorreo, "El correo es obligatorio.");
+                correcto = false;
+            }
+            else if (!txtCorreo.Text.Contains("@") || !txtCorreo.Text.Contains("."))
             {
                 errorProvider1.SetError(txtCorreo, "El correo no es válido.");
                 correcto = false;

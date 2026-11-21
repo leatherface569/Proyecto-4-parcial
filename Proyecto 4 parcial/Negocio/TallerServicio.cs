@@ -75,7 +75,11 @@ namespace Proyecto_4_parcial.Negocio
 
         private void ValidarCorreo(string correo)
         {
-            if (correo != "" && (!correo.Contains("@") || !correo.Contains(".")))
+            if (string.IsNullOrWhiteSpace(correo))
+            {
+                throw new ArgumentException("El correo es obligatorio.");
+            }
+            if (!correo.Contains("@") || !correo.Contains("."))
             {
                 throw new ArgumentException("El correo no es válido.");
             }
@@ -116,15 +120,7 @@ namespace Proyecto_4_parcial.Negocio
         {
             if (string.IsNullOrWhiteSpace(serie) || serie.Length != 17)
             {
-                throw new ArgumentException("La serie debe tener 17 caracteres VIN.");
-            }
-            string permitidos = "abcdefghjklmnprstuvwxyz0123456789";
-            foreach (char caracter in serie.ToLower())
-            {
-                if (!permitidos.Contains(caracter.ToString()))
-                {
-                    throw new ArgumentException("La serie solo admite letras y números, sin I, O ni Q.");
-                }
+                throw new ArgumentException("El número de serie debe tener 17 caracteres.");
             }
         }
 

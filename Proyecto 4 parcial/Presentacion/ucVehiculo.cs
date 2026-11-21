@@ -44,7 +44,7 @@ namespace Proyecto_4_parcial.Presentacion
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public string NumeroSerie
         {
-            get { return txtSerie.Text; }
+            get { return txtSerie.Text.Trim(); }
             set { txtSerie.Text = value; }
         }
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -103,10 +103,33 @@ namespace Proyecto_4_parcial.Presentacion
                 errorProvider1.SetError(txtSerie, "El número de serie es obligatorio.");
                 correcto = false;
             }
+            else if (txtSerie.Text.Trim().Length != 17)
+            {
+                errorProvider1.SetError(txtSerie, "La serie debe tener 17 caracteres. Escribiste " + txtSerie.Text.Trim().Length + ".");
+                correcto = false;
+            }
             if (string.IsNullOrWhiteSpace(txtPlaca.Text))
             {
                 errorProvider1.SetError(txtPlaca, "La placa es obligatoria.");
                 correcto = false;
+            }
+            else if (txtPlaca.Text.Trim().Length < 5 || txtPlaca.Text.Trim().Length > 10)
+            {
+                errorProvider1.SetError(txtPlaca, "La placa debe tener entre 5 y 10 caracteres.");
+                correcto = false;
+            }
+            else
+            {
+                string permitidos = "abcdefghijklmnopqrstuvwxyz0123456789-";
+                foreach (char caracter in txtPlaca.Text.Trim().ToLower())
+                {
+                    if (!permitidos.Contains(caracter.ToString()))
+                    {
+                        errorProvider1.SetError(txtPlaca, "La placa solo admite letras, números o guiones.");
+                        correcto = false;
+                        break;
+                    }
+                }
             }
             if (string.IsNullOrWhiteSpace(txtMarca.Text))
             {
@@ -119,9 +142,14 @@ namespace Proyecto_4_parcial.Presentacion
                 correcto = false;
             }
             int anio;
-            if (!int.TryParse(txtAnio.Text, out anio))
+            if (txtAnio.Text.Length != 4 || !int.TryParse(txtAnio.Text, out anio))
             {
-                errorProvider1.SetError(txtAnio, "El año debe ser un número entero.");
+                errorProvider1.SetError(txtAnio, "El año debe tener 4 dígitos.");
+                correcto = false;
+            }
+            else if (anio < 1900 || anio > DateTime.Today.Year + 1)
+            {
+                errorProvider1.SetError(txtAnio, "El año debe estar entre 1900 y " + (DateTime.Today.Year + 1) + ".");
                 correcto = false;
             }
             int kilometraje;
@@ -129,6 +157,33 @@ namespace Proyecto_4_parcial.Presentacion
             {
                 errorProvider1.SetError(txtKilometraje, "El kilometraje debe ser un número entero.");
                 correcto = false;
+            }
+            else if (kilometraje < 0)
+            {
+                errorProvider1.SetError(txtKilometraje, "El kilometraje no puede ser negativo.");
+                correcto = false;
+            }
+            return correcto;
+        }
+
+        public bool ValidarDuplicados(List<Vehiculo> vehiculos, int idSeleccionado)
+        {
+            bool correcto = true;
+            foreach (Vehiculo vehiculo in vehiculos)
+            {
+                if (vehiculo.Id != idSeleccionado)
+                {
+                    if (vehiculo.NumeroSerie.ToLower() == txtSerie.Text.Trim().ToLower())
+                    {
+                        errorProvider1.SetError(txtSerie, "Este número de serie ya está registrado.");
+                        correcto = false;
+                    }
+                    if (vehiculo.Placa.ToLower() == txtPlaca.Text.Trim().ToLower())
+                    {
+                        errorProvider1.SetError(txtPlaca, "Esta placa ya está registrada.");
+                        correcto = false;
+                    }
+                }
             }
             return correcto;
         }

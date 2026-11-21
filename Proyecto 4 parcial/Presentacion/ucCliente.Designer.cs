@@ -39,8 +39,9 @@ namespace Proyecto_4_parcial.Presentacion
             Controls.Add(txtNombre);
             lbltxtTelefono.AutoSize = true;
             lbltxtTelefono.Location = new Point(270, 15);
-            lbltxtTelefono.Text = "Teléfono";
+            lbltxtTelefono.Text = "Teléfono (10)";
             txtTelefono.Name = "txtTelefono";
+            txtTelefono.MaxLength = 10;
             txtTelefono.Location = new Point(270, 40);
             txtTelefono.Size = new Size(225, 27);
             Controls.Add(lbltxtTelefono);

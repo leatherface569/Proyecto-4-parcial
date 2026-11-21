@@ -32,6 +32,7 @@ namespace Proyecto_4_parcial.Presentacion
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (!ucVehiculo1.ValidarCampos()) return;
+            if (!ucVehiculo1.ValidarDuplicados(negocio.ObtenerVehiculos(), idSeleccionado)) return;
             try
             {
                 Vehiculo vehiculo = new Vehiculo(idSeleccionado, ucVehiculo1.ClienteId,
@@ -64,16 +65,17 @@ namespace Proyecto_4_parcial.Presentacion
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             dgvDatos.Rows.Clear();
-            foreach (Vehiculo vehiculo in negocio.ObtenerVehiculos())
+            try
             {
-                string texto = vehiculo.Placa + " " + vehiculo.Marca + " " + vehiculo.Modelo
-                    + " " + vehiculo.Tipo + " " + vehiculo.NumeroSerie;
-                if (texto.ToLower().Contains(txtBuscar.Text.ToLower()))
-                {
-                    dgvDatos.Rows.Add(vehiculo.Id, vehiculo.ClienteId, vehiculo.Tipo,
-                        vehiculo.NumeroSerie, vehiculo.Placa, vehiculo.Marca,
-                        vehiculo.Modelo, vehiculo.Anio, vehiculo.Kilometraje);
-                }
+                int id = Convert.ToInt32(txtBuscar.Text);
+                Vehiculo vehiculo = negocio.ObtenerVehiculo(id);
+                dgvDatos.Rows.Add(vehiculo.Id, vehiculo.ClienteId, vehiculo.Tipo,
+                    vehiculo.NumeroSerie, vehiculo.Placa, vehiculo.Marca,
+                    vehiculo.Modelo, vehiculo.Anio, vehiculo.Kilometraje);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -86,7 +88,7 @@ namespace Proyecto_4_parcial.Presentacion
                 Vehiculo vehiculo = negocio.ObtenerVehiculo(idSeleccionado);
                 ucVehiculo1.ClienteId = vehiculo.ClienteId;
                 ucVehiculo1.Tipo = vehiculo.Tipo;
-                ucVehiculo1.NumeroSerie = vehiculo.NumeroSerie;
+                ucVehiculo1.NumeroSerie = vehiculo.NumeroSerie; 
                 ucVehiculo1.Placa = vehiculo.Placa;
                 ucVehiculo1.Marca = vehiculo.Marca;
                 ucVehiculo1.Modelo = vehiculo.Modelo;

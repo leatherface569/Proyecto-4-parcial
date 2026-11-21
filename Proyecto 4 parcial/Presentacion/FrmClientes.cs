@@ -23,7 +23,6 @@ namespace Proyecto_4_parcial.Presentacion
             negocio = servicio;
         }
 
-        // Guarda el cliente usando los valores del UserControl.
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (!ucCliente1.ValidarCampos()) return;
@@ -43,7 +42,6 @@ namespace Proyecto_4_parcial.Presentacion
             }
         }
 
-        // Mismo patrón de btnMostrar_Click del repositorio Ev-primer-parcial.
         private void btnMostrar_Click(object sender, EventArgs e)
         {
             dgvDatos.Rows.Clear();
@@ -56,17 +54,18 @@ namespace Proyecto_4_parcial.Presentacion
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             dgvDatos.Rows.Clear();
-            foreach (Cliente cliente in negocio.ObtenerClientes())
+            try
             {
-                string texto = cliente.Nombre + " " + cliente.Telefono + " " + cliente.Correo;
-                if (texto.ToLower().Contains(txtBuscar.Text.ToLower()))
-                {
-                    dgvDatos.Rows.Add(cliente.Id, cliente.Nombre, cliente.Telefono, cliente.Correo);
-                }
+                int id = Convert.ToInt32(txtBuscar.Text);
+                Cliente cliente = negocio.ObtenerCliente(id);
+                dgvDatos.Rows.Add(cliente.Id, cliente.Nombre, cliente.Telefono, cliente.Correo);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
-        // Selecciona una fila para modificarla o darla de baja.
         private void dgvDatos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
